@@ -15,7 +15,6 @@ let cache = apicache.middleware
 router.get('/', cache('15 minutes'), async (req, res) => {
 
     try {
-        console.log('backend')
         const params = new URLSearchParams({
             [API_KEY_NAME]: API_KEY_VALUE,
             ...url.parse(req.url, true).query
@@ -28,7 +27,6 @@ router.get('/', cache('15 minutes'), async (req, res) => {
         if(process.env.NODE_ENV !== 'production') {
             // console.log(`REQUEST: ${API_BASE_URL}?${params}&status=active,sale%20pending`)
         }
-        console.log('about to send')
    
         res.status(200).json(data)
 

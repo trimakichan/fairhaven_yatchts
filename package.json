@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "node index",
-    "dev": "nodemon index"
+    "scripts": {
+    "frontend": "cd Frontend && npm run dev", 
+    "backend": "nodemon index.js",  
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "needle": "^3.3.1"
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "nodemon": "^3.1.3"
   }
 }
