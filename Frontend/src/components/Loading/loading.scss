@@ -1,0 +1,57 @@
+@use '../../assets/sass/abstracts/' as *;
+
+
+.loading {
+    width: 100vw;
+    height: 100svh;
+    position: relative;
+    overflow: hidden;
+    // background-color: rgba($color-background-navy, .6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-primary;
+
+    .boatWheel-left-image {
+        position: absolute;
+        top:0;
+        left: 0;
+        transform: scale(1);
+        // opacity: .3;
+
+        @include md {
+        //    display: none;
+        left: -40%;
+        transform: scale(.5);
+        }
+        
+    }
+
+    .anchor-right-image {
+        position: absolute;
+        bottom: 50;
+        right: 0;
+        transform: rotate(180deg) scale(1.2);
+            // opacity: .3;
+     
+            @include md {
+                  right: -20%;
+                  bottom:0;
+                    transform: rotate(180deg) scale(.6);
+                }
+
+    }
+
+
+    .loading-icon {
+        display: flex;
+        flex-direction: column;
+        flex-direction: center;
+        align-items: center;
+
+        .loading-text {
+            color: $color-text-primary;
+        } 
+
+    }
+}

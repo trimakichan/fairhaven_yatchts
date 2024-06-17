@@ -1,0 +1,112 @@
+@use '../abstracts/variables' as *;
+@use '../base/typography' as *;
+
+@mixin sm {
+    @media (max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin mdMinWidth {
+    @media (min-width: 769px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin hoverEffect {
+    content: '';
+    background: rgba($color-accent-gold, 1);
+    position: absolute;
+    left: 0;
+    bottom: -.3rem;
+    height: 2px;
+}
+
+// For Buttons
+@mixin customButtonStyle($bgColor, $textColor, $borderColor) {
+    padding: .6rem 1rem;
+    font-size: 1rem;
+    color: $textColor;
+    border: 1px solid $borderColor;
+    background-color: $bgColor;
+
+}
+
+@mixin buttonStyleSimple {
+    padding: .6rem 1rem;
+    font-size: 1rem;
+    color: $color-text-primary;
+    border: 1px solid $color-text-primary;
+    background-color: transparent;
+
+}
+
+
+//For section1 and section2 containers
+@mixin sectionContentStyle {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+//For hero section (about and contact page)
+@mixin heroSectionStyle($imageLink, $position) {
+
+    width: 100%;
+    height: 600px;
+    padding: 5rem;
+    // margin-bottom: 2rem;
+    background: url($imageLink) no-repeat;
+    background-position: $position;
+    background-size: cover;
+    background-attachment: fixed;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: end;
+
+    @include lg {
+        padding: 2rem;
+    }
+
+    @include md {
+        margin-bottom: 1rem;
+        grid-template-columns: 1fr;
+        align-items: end;
+    }
+}
+
+@mixin bgWords($text, $font-size, $top-position) {
+    position: relative;
+
+    &::before {
+        content: $text;
+        font-family: $text;
+        text-wrap: nowrap;
+        // font-size: $font-size;
+        font-size:clamp(calc($font-size / 3), 4vw + 1rem, $font-size);
+        color: rgba($color-accent-gold, .15);
+        position: absolute;
+        top: $top-position;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+}

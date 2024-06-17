@@ -1,0 +1,23 @@
+@use '../abstracts/variables' as *;
+
+.layout {
+    // height: 100svh; 
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+        // max-width: 1600px;
+        // width: 100%;
+        // margin-top: 80px;
+        // padding: 0 2rem;
+        background-color: #fff;
+        color: $color-text-primary;
+    }
+
+    .lock {
+        width: 100%;
+        position: fixed;
+    }
+}
+

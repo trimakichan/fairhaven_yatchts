@@ -1,0 +1,55 @@
+@use '../../assets/sass/abstracts/' as *;
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    gap: 2rem;
+
+
+
+    .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        input,
+        textarea {
+            width: 100%;
+            padding: .8rem;
+            border-radius: 5px;
+            border: 1px solid $color-accent-gold;
+            background-color: rgba(#fff, .8);
+        }
+
+        textarea {
+            min-height: 15rem;
+        }
+
+    }
+
+    .w50 {
+        width: 45%;
+
+        @include md {
+            width: 100%;
+        }
+    }
+
+    .w100 {
+        width: 100%;
+    }
+
+
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            @include customButtonStyle($color-accent-gold, $color-text-secondary, $color-text-primary)
+        }
+    }
+
+
+}

@@ -1,0 +1,136 @@
+$font-family-primary: "Playfair Display", serif;
+$font-family-secondary: "Roboto",
+    sans-serif;
+$font-family-pretitle: "Jost",
+    sans-serif;
+$font-family-hero: "Playfair Display SC",
+    serif;
+
+$font-family-cursive: "Tangerine",
+    cursive;
+
+$font-family-lora: "Lora",
+    serif;
+
+// General Text Styles
+
+.bold {
+    font-weight: bold;
+}
+
+//Font Family with size
+
+.heroHeadingText {
+    font-family: $font-family-hero;
+    // font-size: 4rem;
+    font-size: clamp(2rem, 3vw + 1rem, 4rem);
+}
+
+.heroParagraph {
+    font-family: $font-family-pretitle;
+    font-size: clamp(1.2rem, 3vw + .5rem, 1.7rem);
+}
+
+.heroPreheading {
+    font-family: $font-family-cursive;
+    font-size: clamp(2rem, 3vw + 1rem, 4rem);
+}
+
+.listingTitle {
+    font-family: $font-family-primary;
+    font-size: clamp(1rem, 3vw + 1rem, 1.7rem);
+    font-weight: bold;
+}
+
+.subtitle {
+    font-family: $font-family-secondary;
+    font-size: clamp(.85rem, 3vw + 1rem, 1.5rem);
+
+}
+
+.linkText {
+    font-family: $font-family-pretitle;
+    font-size: 1rem;
+}
+
+.textLLora {
+    font-family: $font-family-lora;
+    font-size: clamp(1rem, 3vw + 1rem, 1.7rem);
+    font-style: italic;
+    font-weight: 300;
+}
+
+.textMLora {
+    font-family: $font-family-lora;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.textSLora {
+    font-family: $font-family-lora;
+    font-size: 1rem;
+    // font-weight: 300;
+}
+
+.textMJost {
+    font-family: $font-family-pretitle;
+    font-size: 1.3rem;
+}
+
+.textMRoboto,
+.textSRoboto {
+    font-family: $font-family-secondary;
+}
+
+.textMRoboto {
+    font-size: 1.3rem;
+}
+
+.textSRoboto {
+    font-size: 1rem;
+}
+
+.textSPlayfair {
+    font-family: $font-family-primary;
+    font-size: 1.15rem;
+    font-size: clamp(.9rem, 3vw + 1rem, 1.15rem);
+}
+
+body {
+    font-family: $font-family-secondary;
+    font-size: 1rem;
+}
+
+
+
+h1,
+h2 {
+    font-family: $font-family-primary;
+
+}
+
+h1 {
+    font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+
+}
+
+h2 {
+    font-size: clamp(1.8rem, 3vw + 1rem, 3rem);
+}
+
+h5 {
+    font-family: $font-family-secondary;
+    font-size: clamp(.7rem, 3vw + 1rem, 1rem);
+    font-weight: normal;
+
+}
+
+p {
+    font-family: $font-family-secondary;
+    font-size: clamp(.8rem, 3vw + 1rem, 1.3rem);
+}
+
+button {
+    font-family: $font-family-pretitle;
+}

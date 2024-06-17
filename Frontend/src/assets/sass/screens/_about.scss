@@ -1,0 +1,58 @@
+@use '../../sass/abstracts/' as *;
+
+.about {
+
+    h1,
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    &__hero {
+        @include heroSectionStyle('/about1.jpg', 20% 40%);
+    }
+
+    &__team {
+        padding: 0 3rem 2rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include md {
+            padding: 0 0 2rem;
+        }
+
+
+        .team-title {
+            // padding: 1rem;
+            margin-bottom: 2rem;
+            width: fit-content;
+            text-align: center;
+
+            @include md {
+                width: 100%;
+            }
+        }
+
+        .team-members {
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+
+            @include md {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            @include sm {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    &__section1 {
+        background-color: $color-background-light-grey;
+    }
+}

@@ -1,0 +1,95 @@
+@use '../../sass/abstracts' as *;
+
+.sellYachts {
+
+    &__hero {
+        @include heroSectionStyle('/home3.jpg', 0% 35%);
+        padding-bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+
+        @include md {
+            // padding-bottom: 0;
+            align-items: center;
+
+        }
+
+        .sellYachts-hero-background {
+            max-width: 1000px;
+            padding: 5rem;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            background-color: rgba($color-primary, .45);
+            backdrop-filter: blur(5px);
+
+            @include md {
+                padding: 2rem;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    //create global styles later
+    &__intro {
+        min-height: 400px;
+        background: url('/compass.svg') no-repeat center;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+
+        @include md {
+            padding: 1rem;
+            flex-direction: column;
+        }
+
+        .sellYachts-intro-title {
+            flex: 1
+        }
+
+        .sellYachts-intro-description {
+            flex: 1.3
+        }
+    }
+
+    &__section1 {
+        background-color: $color-background-light-grey;
+
+    }
+
+
+    //create global styles later
+    &__contact {
+
+        background: url('/boatWheelHalf.svg') no-repeat, url('/anchorHalf.svg') no-repeat;
+            background-size: contain;
+            background-position: left, right;
+
+            @include md {
+                background-size: 70%, 40%;
+                background-position: top left, right ;
+            }
+
+        .sellYachts-info-title {
+            margin: 0 auto;
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            
+        }
+
+        .sellYachts-form-container {
+            width: 70%;
+            margin: 0 auto;
+
+            @include md {
+                width: 100%;
+            }
+        }
+
+    }
+}

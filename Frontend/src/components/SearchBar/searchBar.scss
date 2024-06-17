@@ -1,0 +1,76 @@
+@use '../../assets/sass/abstracts/' as *;
+
+
+.search-bar {
+    width: 100%;
+
+    .filter-title {
+        display: flex;
+        gap: 1rem;
+ 
+        .reset {
+            cursor: pointer;
+            align-self: end;
+            display: flex;
+            align-items: center;
+            color: red;
+        }
+    }
+
+    form {
+        margin: 1rem 0 3rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        // place-items: center;
+
+        @include lg {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include md {
+            grid-template-columns: 1fr;
+        }
+
+        .filter-box {
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+
+            .input-box {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                // gap: .3rem;
+            }
+        
+        }
+
+        input, select {
+            padding: 1rem;
+  
+        }
+
+        input {
+            &:first-child {
+                    border-right: none;
+                }
+        }
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        @include customButtonStyle(transparent, $color-text-primary, $color-accent-gold);
+        
+        &:hover {
+            background-color: rgba($color-accent-gold, .4);
+        }
+    }
+
+    .results-count {
+        color: red;
+    }
+
+}

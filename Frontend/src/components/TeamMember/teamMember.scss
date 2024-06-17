@@ -1,0 +1,75 @@
+@use '.././../assets/sass/abstracts/' as *;
+
+.teamMember {
+    // max-width: 370px;
+    padding: 1rem;
+
+    border-width: 5px;
+    border-color: $color-accent-gold;
+    border-style: double;
+    border-radius: 5px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 12rem auto;
+    gap: 1.2rem;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.04);
+        transition: transform 1s ease;
+    }
+
+    .teamMember-top {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        img {
+            width: 100%;
+            height: 80%;
+            object-fit: contain;
+            display: block;
+            clip-path: circle();
+        }
+
+    }
+
+
+
+    .teamMember-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+
+        .teamMember-contactInfo {
+
+            .icon-container {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+
+                &:hover,
+                &:focus {
+                    .iconStyles {
+                        color: rgba($color-accent-gold, 1)
+                    }
+
+                }
+
+                // .iconStyles {
+                //     width: 25px;
+                //     height: auto;
+                //     color: rgba($color-accent-gold, .6)
+                // }
+            }
+        }
+    }
+
+
+
+}

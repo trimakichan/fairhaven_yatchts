@@ -1,0 +1,55 @@
+@use '../abstracts/' as *;
+
+.wrapper {
+    padding: 5rem 3rem;
+    // padding: 0 1rem;
+    max-width: 1600px;
+    margin: 0 auto;
+
+    @include md {
+        padding: 1rem;
+    }
+}
+
+
+//For Box Content Style
+
+
+.sectionLayout {
+    // padding: 5rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+
+    @include md {
+        padding: 3rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+}
+
+.sectionContentLayout {
+    display: flex;
+    flex-direction: column;
+        justify-content: center;
+    gap: 1.5rem;
+}
+
+.imageCover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.heroBgStyle {
+    max-width: 1000px;
+    padding: 3rem;
+    background-color: rgba($color-primary, .45);
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+}
+
