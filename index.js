@@ -4,9 +4,20 @@ const rateLimit = require('express-rate-limit');
 const path = require('path');
 require('dotenv').config();
 
+
 const PORT = process.env.PORT || 5000
 
 const app = express();
+
+app.get("/*", function (req, res) {
+    res.sendFile(__dirname, "./Frontend/dist/index.html"),
+        function (err) {
+            if (err) {
+                res.status(500).send(err);
+            }
+        }
+
+})
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -32,17 +43,19 @@ app.use(cors());
 //this runs our app in heroku
 // const __dirname = path.resolve()
 // if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static(path.join(__dirname, '/Frontend/build')))
+//     app.use(express.static(path.join(__dirname, '/Frontend/dist')))
 //     app.get('*', (req, res) => {
-//         res.sendFile(path.resolve(__dirname, 'Frontend', 'build', 'index.html'))
+//         res.sendFile(path.resolve(__dirname, 'Frontend', 'dist', 'index.html'))
 //     })
 // };
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'Frontend', 'dist')));
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'Frontend', 'dist', 'index.html'));
-    });
-};
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static(path.join(__dirname, 'Frontend', 'dist')));
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.resolve(__dirname, 'Frontend', 'dist', 'index.html'));
+//     });
+// };
+
+
 
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`)) 
