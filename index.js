@@ -9,15 +9,28 @@ const PORT = process.env.PORT || 5000
 
 const app = express();
 
-app.get("/*", function (req, res) {
-    res.sendFile(__dirname, "./Frontend/dist/index.html"),
-        function (err) {
+// app.get("/*", function (req, res) {
+//     res.sendFile(__dirname, "./Frontend/dist/index.html"),
+//         function (err) {
+//             if (err) {
+//                 res.status(500).send(err);
+//             }
+//         }
+
+// })
+if (process.env.NODE_ENV === 'production') {
+    // Serve static files from the Frontend/dist directory
+    app.use(express.static(path.join(__dirname, 'Frontend', 'dist')));
+
+    // All other requests should return the index.html file from dist
+    app.get('/*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'Frontend', 'dist', 'index.html'), (err) => {
             if (err) {
                 res.status(500).send(err);
             }
-        }
-
-})
+        });
+    });
+}
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
