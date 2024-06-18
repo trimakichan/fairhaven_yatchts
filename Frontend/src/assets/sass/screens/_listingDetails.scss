@@ -91,13 +91,13 @@
                 z-index: -1;
 
                 @include sm {
-                    display: none;
+                    // display: none;
                 }
             }
 
             @include sm {
-                text-decoration: underline rgba($color-accent-gold, .4);
-                text-decoration-thickness: 5px;
+                // text-decoration: underline rgba($color-accent-gold, .4);
+                // text-decoration-thickness: 5px;
             }
 
         }
