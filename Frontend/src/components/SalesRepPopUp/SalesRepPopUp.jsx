@@ -53,6 +53,7 @@ const SalesRepPopUp = ({ salesRep, boatInfo }) => {
                 src={broker.image}
                 alt={`${broker.firstName} ${broker.lastName} Profile Image`}
                 title={`${broker.firstName} ${broker.lastName}`}
+                loading="lazy"
               />
             </div>
             <figcaption>

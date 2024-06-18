@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useFadeInYAxisAnimSettings } from "../animations/animationHooks"
+import { useFadeInYAxisAnimSettings } from "../animations/animationHooks";
 import AnchorIcon from "../components/AnchorIcon/AnchorIcon";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiPhone } from "react-icons/fi";
@@ -58,7 +58,7 @@ const Contact = () => {
                     La Conner, WA 98257 USA
                   </div>
                   <a
-                    href="https://maps.app.goo.gl/e25YNJMbJQ2vSAE37"
+                    href="https://maps.app.goo.gl/dAKMZjWnhZtbp7289"
                     target="_blank"
                   >
                     <div className="linkText hoverEffectColor">
@@ -80,7 +80,7 @@ const Contact = () => {
             <div className="content-map-container">
               <div className="textMJost bold">La Connner Office</div>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2649.3647656227618!2d-122.50057561577943!3d48.39193779720139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548565a38b1c9f1f%3A0xc56e4674e6d989ab!2s105%20N%201st%20St%2C%20La%20Conner%2C%20WA%2098257!5e0!3m2!1sja!2sus!4v1715797290713!5m2!1sja!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2649.3283011878007!2d-122.49900062316863!3d48.392638133369445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548565ef16d00591%3A0x860e16b7cd005a72!2sFairhaven%20Yacht%20Sales!5e0!3m2!1sen!2sus!4v1718728986790!5m2!1sen!2sus"
                 className="laConnerMap"
                 allowFullScreen=""
                 loading="lazy"

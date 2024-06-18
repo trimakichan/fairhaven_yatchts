@@ -33,6 +33,9 @@
         }
 
         .filter-box {
+            width: 100%;
+            max-width: 100%;
+            margin-top: .2rem;
             display: flex;
             flex-direction: column;
             gap: .3rem;
@@ -46,15 +49,18 @@
         }
 
         input, select {
+            width: 100%;
+            height: 100%;
             padding: 1rem;
   
         }
 
-        input {
-            &:first-child {
-                    border-right: none;
-                }
+        select {
+            option {
+                width: inherit;
+            }
         }
+
     }
 
     button {

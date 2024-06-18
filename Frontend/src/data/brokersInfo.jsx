@@ -1,4 +1,3 @@
-
 export const brokersInfo = [
   {
     id: 1,
@@ -15,6 +14,17 @@ export const brokersInfo = [
   {
     id: 2,
     salesRepId: null,
+    firstName: "Eric",
+    lastName: "Blendheim",
+    description:
+      "Eric Blendheim is a seasoned luxury yacht broker with over 20 years of global negotiation experience. He excels in finding the perfect vessels for discerning clients, closing difficult deals, and providing top-tier customer service. Throughout his career, Eric has built strong relationships worldwide and honed his negotiation skills across various countries. His deep industry knowledge and attention to technological advancements make him a sought-after expert. Eric's commitment to his clients and his extensive network in the yacht business make him the ideal choice for those seeking a top-tier yacht broker.",
+    cell: "1-206-948-9037",
+    email: "fairhavenyachtsales@gmail.com",
+    image: "/eric-blendheim.webp",
+  },
+  {
+    id: 3,
+    salesRepId: null,
     firstName: "Dan",
     lastName: "Byrd",
     description:
@@ -24,7 +34,7 @@ export const brokersInfo = [
     image: "/dan-byrd.webp",
   },
   {
-    id: 3,
+    id: 4,
     salesRepId: 126525,
     firstName: "Pat",
     lastName: "McGarry",
@@ -34,7 +44,7 @@ export const brokersInfo = [
     image: "/pat-mcgarry.webp",
   },
   {
-    id: 4,
+    id: 5,
     salesRepId: 126526,
     firstName: "Chris",
     lastName: "Burgess",
@@ -45,7 +55,7 @@ export const brokersInfo = [
     image: "/chris-burgess.webp",
   },
   {
-    id: 5,
+    id: 6,
     salesRepId: null,
     firstName: "Thao",
     lastName: "Tran",
@@ -56,7 +66,7 @@ export const brokersInfo = [
     image: "/Thao-Tran.webp",
   },
   {
-    id: 6,
+    id: 7,
     salesRepId: null,
     firstName: "Wendy",
     lastName: "Walsh",
@@ -65,4 +75,3 @@ export const brokersInfo = [
     image: "/wendy-walsh.webp",
   },
 ];
-

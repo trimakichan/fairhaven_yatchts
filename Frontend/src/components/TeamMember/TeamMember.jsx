@@ -12,6 +12,7 @@ const TeamMember = ({ memberInfo: m }) => {
            src={m.image}
            alt={`${m.firstName} ${m.lastName} Profile Image`}
            title={`${m.firstName} ${m.lastName}`}
+           loading="lazy"
          />
          <figcaption>
            <div className="textSRoboto bold">

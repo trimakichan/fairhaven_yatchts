@@ -98,6 +98,7 @@ const Listings = () => {
             src="/listings2.jpg"
             alt="An image of a mid-sized boat on the blue ocean."
             className="imageCover"
+            loading="lazy"
           />
         </div>
       </article>

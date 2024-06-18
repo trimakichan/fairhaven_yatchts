@@ -55,7 +55,11 @@ const ImageSlider = ({ data: { images, index } }) => {
               aria-label="Previous Slide"
               onClick={() => changeSlide("left")}
             />
-            <img src={slides[currentIndex]} alt="one of sliding images" />
+            <img
+              src={slides[currentIndex]}
+              alt="one of the boat images"
+              loading="lazy"
+            />
             <PiArrowSquareRightDuotone
               className="arrow-style arrowPositionRight"
               aria-label="Next Slide"

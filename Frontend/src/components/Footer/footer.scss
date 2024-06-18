@@ -1,11 +1,38 @@
 @use '../../assets/sass/abstracts/' as *;
+@use '../../assets/sass/base/typography' as *;
 
 
 .footer {
     background-color: $color-background-navy;
-
-
     color: $color-text-secondary;
+    position: relative;
+
+    .footer-top {
+        position: absolute;
+            left: 50%;
+            top: -35px;
+            transform: translateX(-50%);
+            /* Center the element horizontally */
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+        
+            font-family: $font-family-primary;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: $color-background-navy;
+        
+            background: white;
+            border: 1px solid rgba($color-background-navy, .4);
+            border-radius: 50%;
+        
+            z-index: 40;
+            cursor: pointer;
+
+    }
 
     .footer-logo {
         display: flex;

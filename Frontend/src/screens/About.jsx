@@ -61,7 +61,12 @@ const About = () => {
             </Link>
           </motion.div>
 
-          <img src="/about2.jpg" alt="A boat image" className="imageCover" />
+          <img
+            src="/about2.jpg"
+            alt="A closeup of half of the boat"
+            className="imageCover"
+            loading="lazy"
+          />
         </div>
       </article>
     </main>

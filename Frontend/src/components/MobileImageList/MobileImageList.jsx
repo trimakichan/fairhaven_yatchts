@@ -60,7 +60,7 @@ const MobileImageList = ({ images }) => {
             onClick={() => setIsMobileSliderOn(!isMobileSliderOn)}
           />
           {imageArray.map((uri, index) => (
-            <img key={index} src={uri} alt=""/>
+            <img key={index} src={uri} alt="one of the boat images" loading="lazy" />
           ))}
         </>
       )}

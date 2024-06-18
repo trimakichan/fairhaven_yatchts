@@ -209,11 +209,6 @@ useEffect(() => {
             />
           </div>
         </div>
-
-        {/* <button type="submit">
-          <CiSearch />
-          Search
-        </button> */}
       </form>
 
       <div className="textLLora">

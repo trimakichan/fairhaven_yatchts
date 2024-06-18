@@ -20,6 +20,7 @@ const Card = ({ item }) => {
             <img
               src={item.Images[0].Uri}
               alt={`${item.MakeString} Main Image`}
+              loading="lazy"
             />
           </div>
         </Link>
@@ -32,7 +33,7 @@ const Card = ({ item }) => {
             {parseFloat(item.Price).toLocaleString("en-US", {
               style: "currency",
               currency: "USD",
-              minimumFractionDigits: 0, 
+              minimumFractionDigits: 0,
               maximumFractionDigits: 0,
             })}
           </p>

@@ -115,6 +115,7 @@ const ImageDetailSection = ({ boatListing }) => {
               src={mainImage}
               alt={`A larger ${boatListing.MakeString} boat image`}
               onClick={() => setIsImageSliderOn(true)}
+              loading="lazy"
             />
           ) : (
             <p>Loading....</p>
@@ -148,6 +149,7 @@ const ImageDetailSection = ({ boatListing }) => {
                     key={index}
                     src={image.Uri}
                     alt={`A ${boatListing.MakeString} boat image`}
+                    loading="lazy"
                   />
                 </div>
               );
@@ -184,6 +186,7 @@ const ImageDetailSection = ({ boatListing }) => {
             src={boatListing.Images[imageIndex].Uri}
             alt={`${boatListing.MakeString} Image`}
             onClick={() => setIsMobileSliderOn(!isMobileSliderOn)}
+            loading="lazy"
           />
 
           <PiArrowSquareRightDuotone

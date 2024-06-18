@@ -8,6 +8,8 @@ import {
 } from "../animations/animationHooks";
 import { useParams } from "react-router-dom";
 import { useBoatListingsById } from "../api/fetchListings";
+import { useNavigate } from "react-router-dom";
+
 import Loading from "../components/Loading/Loading";
 import ImageDetailSection from "../components/ImageDetailSection/ImageDetailSection";
 import SalesRepPopUp from "../components/SalesRepPopUp/SalesRepPopUp";
@@ -15,13 +17,22 @@ import SalesRepPopUp from "../components/SalesRepPopUp/SalesRepPopUp";
 //icons
 import { GrLocation } from "react-icons/gr";
 import { AiOutlineMessage, AiOutlineCloseCircle } from "react-icons/ai";
+import { RxDoubleArrowLeft } from "react-icons/rx";
+
 
 
 const ListingDetails = () => {
+
   const fadeInYAxisAnimSettings = useFadeInYAxisAnimSettings();
   const fadeInAnimSettings = useFadeInAnimSettings();
-
   const [isContactPopupOn, setIsContactPopupOn] = useState(false);
+const navigate = useNavigate();
+
+const handleGoBack = () => {
+  navigate(-1)
+}
+
+
   // console.log(isContactPopupOn);
   const { id } = useParams();
   const {
@@ -62,6 +73,8 @@ const ListingDetails = () => {
 
   return (
     <main className="listingDetails">
+
+      {/* Sales rep popup section */}
       <div className="contact-aside">
         {isContactPopupOn ? (
           <>
@@ -95,32 +108,39 @@ const ListingDetails = () => {
 
       {/* Title Section */}
       <div className="wrapper listingDetails-title-bg">
-        <motion.div
-          className="listingDetails__title"
-          {...fadeInYAxisAnimSettings}
-        >
-          <h1>
-            <span>
-              {`${boatListing.ModelYear} ${
-                boatListing.BuilderName || boatListing.MakeString
-              } ${boatListing.Model}`}
-            </span>
-          </h1>
+        <div className=""></div>
+     
+          <button className="go-back" onClick={handleGoBack}>
+            <RxDoubleArrowLeft /> Go back
+          </button>
+    
+          <motion.div
+            className="listingDetails__title"
+            {...fadeInYAxisAnimSettings}
+          >
+            <h1>
+              <span>
+                {`${boatListing.ModelYear} ${
+                  boatListing.BuilderName || boatListing.MakeString
+                } ${boatListing.Model}`}
+              </span>
+            </h1>
 
-          <div className="textMJost listingDetails__title__info ">
-            <div>
-              {parseFloat(boatListing.Price).toLocaleString("en-US", {
-                style: "currency",
-                currency: "USD",
-              })}
+            <div className="textMJost listingDetails__title__info ">
+              <div>
+                {parseFloat(boatListing.Price).toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                })}
+              </div>
+              <div className="info-location">
+                <GrLocation className="iconStyles" />{" "}
+                {boatListing.BoatLocation.BoatCityName},{" "}
+                {boatListing.BoatLocation.BoatStateCode}
+              </div>
             </div>
-            <div className="info-location">
-              <GrLocation className="iconStyles" />{" "}
-              {boatListing.BoatLocation.BoatCityName},{" "}
-              {boatListing.BoatLocation.BoatStateCode}
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
+     
       </div>
 
       {/* Image Section */}
@@ -141,15 +161,6 @@ const ListingDetails = () => {
 
             {additionalDescription && <p>{parse(additionalDescription)}</p>}
           </div>
-
-          {/* <div className="listingDetails-button-container">
-              <a href="tel:1-206-940-9088">
-                <button className="call-button">Call</button>
-              </a>
-              <a href="mailto:fairhavenyachtsales@gmail.com">
-                <button className="email-button">Email</button>
-              </a>
-            </div> */}
         </motion.div>
       </div>
     </main>

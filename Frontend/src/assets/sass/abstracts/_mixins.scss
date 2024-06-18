@@ -96,7 +96,7 @@
 @mixin bgWords($text, $font-size, $top-position) {
     position: relative;
 
-    &::before {
+    &::after {
         content: $text;
         font-family: $text;
         text-wrap: nowrap;

@@ -44,6 +44,7 @@ const SellYachts = () => {
             src="/sellYachst2.jpg"
             alt="marina"
             className="imageCover imageOrder"
+            loading="lazy"
           />
           <motion.div
             className="sectionContentLayout section2-content"
@@ -70,9 +71,7 @@ const SellYachts = () => {
           </motion.div>
 
           <div className="sellYachts-form-container">
-        <ContactForm />
-           
-            
+            <ContactForm />
           </div>
         </div>
       </article>

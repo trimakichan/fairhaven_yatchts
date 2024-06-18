@@ -160,6 +160,7 @@ const HomePage = () => {
             src="/home2.jpg"
             alt="A power boat blasting on the water"
             className="imageCover"
+            loading="lazy"
           />
         </section>
       </div>
@@ -170,6 +171,7 @@ const HomePage = () => {
             src="/home3.jpg"
             alt="marina"
             className="imageCover imageOrder"
+            loading="lazy"
           />
           <motion.div
             className="sectionContentLayout section2-content"
@@ -229,6 +231,7 @@ const HomePage = () => {
                 src="/yachting-logo.webp"
                 alt="Yachting Magazine Logo"
                 title="Yachting Magazine"
+                loading="lazy"
               />
             </a>
             <a href="https://www.passagemaker.com/" target="_blank">
@@ -236,6 +239,7 @@ const HomePage = () => {
                 src="/passagemaker-trawlerfest-logo.webp"
                 alt="Passagemaker Trawlerfest Logo"
                 title="Passagemaker Trawlerfest"
+                loading="lazy"
               />
             </a>
             <a href="https://www.bonhams.com/" target="_blank">
@@ -243,6 +247,7 @@ const HomePage = () => {
                 src="/bonhams-logo.webp"
                 alt="Bohams Auction House Logo"
                 title="Bohams Auction House"
+                loading="lazy"
               />
             </a>
             <a
@@ -253,6 +258,7 @@ const HomePage = () => {
                 src="/sevenstar-logo.webp"
                 alt="Sevenstar Logo"
                 title="Sevenstar Yacht Transport"
+                loading="lazy"
               />
             </a>
           </motion.div>
