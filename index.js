@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const rateLimit = require('express-rate-limit')
+const rateLimit = require('express-rate-limit');
+const path = require('path');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 5000
@@ -29,12 +30,18 @@ app.use('/api', require('./routes'))
 app.use(cors());
 
 //this runs our app in heroku
-const __dirname = path.resolve()
+// const __dirname = path.resolve()
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static(path.join(__dirname, '/Frontend/build')))
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.resolve(__dirname, 'Frontend', 'build', 'index.html'))
+//     })
+// };
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '/Frontend/build')))
+    app.use(express.static(path.join(__dirname, '/Frontend/build')));
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'Frontend', 'build', 'index.html'))
-    })
+        res.sendFile(path.resolve(__dirname, 'Frontend', 'build', 'index.html'));
+    });
 };
 
 
