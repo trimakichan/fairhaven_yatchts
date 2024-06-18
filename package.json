@@ -10,8 +10,8 @@
     "frontend": "cd Frontend && npm run dev",
     "backend": "nodemon index.js",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "start": "node index.js",
-    "postinstall": "cd Frontend && npm install && npm run build"
+    "start": "node index.js"
+
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "express-rate-limit": "^7.3.1",
+    "express-rate-limit": "^7.3.1", 
     "needle": "^3.3.1"
   },
   "devDependencies": {
