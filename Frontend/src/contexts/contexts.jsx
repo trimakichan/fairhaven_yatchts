@@ -8,8 +8,7 @@ export const ContextsProvider = ({ children }) => {
     const [isMobileSliderOn, setIsMobileSliderOn] = useState(false);
     const [isImageSliderOn, setIsImageSliderOn] = useState(false);
     const [isNavAnimFinished, setIsNavAnimFinished] = useState(null);
-    const [filteredResults, setFilteredResults] = useState([])
-    console.log(filteredResults)
+    const [boatResults, setBoatResults] = useState([])
 
 
     return (
@@ -23,8 +22,8 @@ export const ContextsProvider = ({ children }) => {
           setIsImageSliderOn,
           isNavAnimFinished,
           setIsNavAnimFinished,
-          filteredResults,
-          setFilteredResults,
+          boatResults,
+          setBoatResults,
         }}
       >
         {children}

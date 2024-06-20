@@ -15,7 +15,7 @@ import SearchBar from "../components/SearchBar/SearchBar";
 // const MAX_ITEMS_PER_LOAD = 6;
 
 const Listings = () => {
-  const { filteredResults } = useContext(Contexts);
+  const { boatResults } = useContext(Contexts);
   // const [visibleCount, setVisibleCount] = useState(MAX_ITEMS_PER_LOAD);
   // const { ref, inView } = useInView({
   //   triggerOnce: false,
@@ -64,9 +64,9 @@ const Listings = () => {
 
               <div className="sale-listings">
                 {/* Always display filteredResults if they exist and contain elements */}
-                {filteredResults &&
-                  filteredResults.length > 0 &&
-                  filteredResults.map((boat, index) => (
+                {boatResults &&
+                  boatResults.length > 0 &&
+                  boatResults.map((boat, index) => (
                     <Card key={index} item={boat} />
                   ))}
               </div>
