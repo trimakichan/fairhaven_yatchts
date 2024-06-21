@@ -1,5 +1,6 @@
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useContext, useRef, useState } from "react";
 import "./imageSlider.scss";
+import { handleTouchStart, handleTouchMove, handleTouchEnd } from "../../utilities/utilities";
 
 import { AiTwotoneCloseSquare } from "react-icons/ai";
 import {
@@ -11,13 +12,14 @@ import { Contexts } from "../../contexts/contexts";
 
 const ImageSlider = ({ data: { images, index } }) => {
   const { setIsImageSliderOn } = useContext(Contexts);
+  const sliderRef = useRef(null);
   console.log(images);
   const slides = images?.map((item) => item.Uri);
   // console.log(slides)
 
   const [currentIndex, setCurrentIndex] = useState(index);
 
-  const changeSlide = useCallback(
+  const moveSlide = useCallback(
     (direction) => {
       if (direction === "left") {
         if (currentIndex === 0) {
@@ -41,29 +43,37 @@ const ImageSlider = ({ data: { images, index } }) => {
   }
 
   return (
-    <div className="imageSlider">
+    <div
+      className="imageSlider"
+      ref={sliderRef}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={() => handleTouchEnd(moveSlide)}
+    >
       {slides && slides.length > 0 && (
         <>
           <AiTwotoneCloseSquare
-            className="close-style closePositions"
+            className="closeStyle closePositions"
             aria-label="Close Image Slider"
             onClick={() => setIsImageSliderOn(false)}
           />
           <div className="slider-content">
             <PiArrowSquareLeftDuotone
-              className="arrow-style arrowPositionLeft"
+              className="arrowStyle arrow-position-left"
               aria-label="Previous Slide"
-              onClick={() => changeSlide("left")}
+              onClick={() => moveSlide("left")}
             />
-            <img
-              src={slides[currentIndex]}
-              alt="one of the boat images"
-              loading="lazy"
-            />
+            <div className="slider-content-image">
+              <img
+                src={slides[currentIndex]}
+                alt="one of the boat images"
+                loading="lazy"
+              />
+            </div>
             <PiArrowSquareRightDuotone
-              className="arrow-style arrowPositionRight"
+              className="arrowStyle arrow-position-right"
               aria-label="Next Slide"
-              onClick={() => changeSlide("right")}
+              onClick={() => moveSlide("right")}
             />
           </div>
         </>

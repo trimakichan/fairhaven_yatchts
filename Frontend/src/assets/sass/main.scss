@@ -23,17 +23,16 @@
     color: rgba($color-accent-gold, .6)
 }
 
-//rename to camelCase
-.close-style, 
-.arrow-style {
+.closeStyle,
+.arrowStyle {
     width: 60px;
-        height: auto;
-        color: $color-accent-gold;
-        cursor: pointer;
+    height: auto;
+    color: $color-accent-gold;
+    cursor: pointer;
 }
 
-.close-small-style,
-.arrow-small-style {
+.closeSmallStyle,
+.arrowSmallStyle {
     width: 45px;
     height: auto;
     color: $color-background-light-grey;

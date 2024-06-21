@@ -16,7 +16,7 @@
         position: absolute;
         top: 14%;
         right: 2%;
-        
+
     }
 
     // .arrowPosition {
@@ -26,25 +26,12 @@
     //     }
     // }
 
-    .arrowPositionLeft {
-        @include md {
-            top: 45%;
-            left: 1%;
-        }
 
-    }
-
-    .arrowPositionRight {
-        @include md {
-        top: 45%;
-                right: 1%;
-            }
-
-    }
 
 
 
     .slider-content {
+        border: 1px solid yellow;
         width: 100%;
         height: 90%;
         display: flex;
@@ -54,40 +41,41 @@
 
         @include md {
             height: 100%;
+        }
 
+        .arrow-position-left {
+            flex-shrink: 0;
+            @include md {
+                top: 45%;
+                left: 1%;
+            }
+
+        }
+
+        .arrow-position-right {
+            flex-shrink: 0;
+            @include md {
+                top: 45%;
+                right: 1%;
+            }
+
+        }
+
+        .slider-content-image {
+            height: inherit;
             
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            // display: inline-block;
-
+            img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    // display: inline-block;
+                }
 
         }
+        
 
     }
 
 
 }
 
-// .imageSlider {
-//     width: 500px;
-//     height: 280px;
-//     // margin: 0 auto;
-//     // height: 100%;
-//     // position: relative;
-//     background: url('/ocean_alexander.webp') no-repeat;
-
-//     overflow: hidden;
-
-//     .slideStyles {
-//             width: 500px;
-//                 height: 280px;
-//         // width: 100%;
-//         // height: 100%;
-//         background-position: center;
-//         background-size: contain ;
-//     }
-// }

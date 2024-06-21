@@ -3,7 +3,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import "./imageDetailSection.scss";
 import { Contexts } from "../../contexts/contexts";
 import ImageSlider from "../ImageSlider/ImageSlider";
-import MobileImageList from "../MobileImageList/MobileImageList"
+import MobileImageList from "../MobileImageList/MobileImageList";
 
 //icons
 import {
@@ -21,10 +21,7 @@ import { CiRuler } from "react-icons/ci";
 import { GiSailboat } from "react-icons/gi";
 import { CiViewList } from "react-icons/ci";
 
-
 const ImageDetailSection = ({ boatListing }) => {
-
-
   const { isMobileSliderOn, setIsMobileSliderOn } = useContext(Contexts);
   const { isImageSliderOn, setIsImageSliderOn } = useContext(Contexts);
   const [mainImage, setMainImage] = useState(null);
@@ -34,11 +31,10 @@ const ImageDetailSection = ({ boatListing }) => {
   const sliderMobileRef = useRef(null);
 
   useEffect(() => {
-    console.log(boatListing)
+    console.log(boatListing);
     if (boatListing?.Images.length > 0) {
       setMainImage(boatListing.Images[0].Uri);
     }
-   
   }, [boatListing]);
 
   let touchStart = 0;
@@ -124,7 +120,7 @@ const ImageDetailSection = ({ boatListing }) => {
 
         <div className="listingDetails__images__slider">
           <PiArrowSquareLeftDuotone
-            className="arrow-style"
+            className="arrowStyle"
             onClick={() => moveSlide("click", "left")}
           />
 
@@ -157,7 +153,7 @@ const ImageDetailSection = ({ boatListing }) => {
           </div>
 
           <PiArrowSquareRightDuotone
-            className="arrow-style"
+            className="arrowStyle"
             onClick={() => moveSlide("click", "right")}
           />
         </div>
@@ -178,7 +174,7 @@ const ImageDetailSection = ({ boatListing }) => {
           onTouchEnd={handleTouchEnd}
         >
           <PiArrowSquareLeftDuotone
-            className="arrow-small-style arrowLeftPositon"
+            className="arrowSmallStyle arrowLeftPositon"
             onClick={() => changeImageIndex("left")}
           />
 
@@ -190,7 +186,7 @@ const ImageDetailSection = ({ boatListing }) => {
           />
 
           <PiArrowSquareRightDuotone
-            className="arrow-small-style arrowRightPositon"
+            className="arrowSmallStyle arrowRightPositon"
             onClick={() => changeImageIndex("right")}
           />
         </div>
