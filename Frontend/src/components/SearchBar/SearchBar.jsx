@@ -1,43 +1,53 @@
 import { useContext, useEffect, useState } from "react";
 import "./searchBar.scss";
-import { CiSearch } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
-
 import { Contexts } from "../../contexts/contexts";
 
 const SearchBar = ({ allBoats }) => {
   const { boatResults, setBoatResults } = useContext(Contexts);
   const [buildersType, setBuildersType] = useState(null);
-  // const [allBoats, setAllBoats] = useState([]);
-  // const [filterBoats, setFilterBoats] = useState([]);
-
   const [builder, setBuilder] = useState("");
   const [boatClass, setBoatClass] = useState("");
   const [minYear, setMinYear] = useState("");
   const [maxYear, setMaxYear] = useState("");
   const [minPrice, setMinPrice] = useState("");
+  const [formattedMinPrice, setFormattedMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
+  const [formattedMaxPrice, setFormattedMaxPrice] = useState("");
   const [minLength, setMinLength] = useState("");
   const [maxLength, setMaxLength] = useState("");
 
-  // const [searchParams, setSearchParams] = useState({
-  //   builder: "",
-  //   class: "",
-  //   minYear: "",
-  //   maxYear: new Date().getFullYear(),
-  //   minPrice: "",
-  //   maxPrice: 50000000,
-  //   minLength: "",
-  //   maxLength: 300,
-  // });
+  const formatPrice = (price) => {
+    if (price !== "") {
+      const num = parseFloat(price);
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      }).format(parseFloat(num));
+    } else {
+      return "";
+    }
+  };
 
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setSearchParams((prevParams) => ({
-  //     ...prevParams,
-  //     [name]: parseFloat(value) || value,
-  //   }));
-  // };
+  const handlePriceChange = (e, type) => {
+    const value = e.target.value.replace(/[$,]/g, "");
+    const numValue = parseFloat(value);
+
+    if (!isNaN(numValue)) {
+      type === "min" ? setMinPrice(numValue) : setMaxPrice(numValue);
+    } else {
+      type === "min" ? setMinPrice("") : setMaxPrice("");
+    }
+  };
+
+    useEffect(() => {
+      setFormattedMinPrice(formatPrice(minPrice));
+    }, [minPrice]);
+
+    useEffect(() => {
+      setFormattedMaxPrice(formatPrice(maxPrice));
+    }, [maxPrice]);
 
   useEffect(() => {
     if (allBoats && allBoats.length > 0) {
@@ -47,7 +57,7 @@ const SearchBar = ({ allBoats }) => {
       );
       setBuildersType([...builders]);
     }
-  }, [allBoats, setBoatResults, setBuildersType]);
+  }, [allBoats, setBoatResults]);
 
   useEffect(() => {
     if (
@@ -92,11 +102,13 @@ const SearchBar = ({ allBoats }) => {
     setMinYear("");
     setMaxYear("");
     setMinPrice("");
+    setFormattedMinPrice("");
     setMaxPrice("");
     setMinLength("");
     setMaxLength("");
-   setBoatResults(allBoats);
+    setBoatResults(allBoats);
   };
+
 
 
   return (
@@ -150,11 +162,16 @@ const SearchBar = ({ allBoats }) => {
               type="number"
               id="minYear"
               name="minYear"
-              min={1920}
+              // min={1920}
               max={new Date().getFullYear()}
               placeholder="Min"
               value={minYear}
-              onChange={(e) => setMinYear(parseFloat(e.target.value))}
+              onChange={(e) => {
+                const numYear = isNaN(parseFloat(e.target.value))
+                  ? ""
+                  : parseFloat(e.target.value);
+                setMinYear(numYear);
+              }}
             />
             <input
               type="number"
@@ -163,33 +180,38 @@ const SearchBar = ({ allBoats }) => {
               max={new Date().getFullYear()}
               placeholder="Max"
               value={maxYear}
-              onChange={(e) => setMaxYear(parseFloat(e.target.value))}
+              onChange={(e) => {
+                const numYear = isNaN(parseFloat(e.target.value))
+                  ? ""
+                  : parseFloat(e.target.value);
+                setMaxYear(numYear);
+              }}
             />
           </div>
         </div>
 
         <div className="filter-box">
-          <label htmlFor="minPrice">Price</label>
+          <label htmlFor="minPrice">Price &#x28;USD&#x29;</label>
           <div className="input-box">
             <input
-              type="number"
+              // type needs to be 'text' in order to show formatted currency.
+              type="text"
               id="minPrice"
               name="minPrice"
               min={0}
-              step="0.01"
               placeholder="Min"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
+              value={formattedMinPrice}
+              onChange={(e) => handlePriceChange(e, "min")}
             />
             <input
-              type="number"
+              // type needs to be 'text' in order to show formatted currency.
+              type="text"
               name="maxPrice"
               min={0}
               max={50000000}
-              step="0.01"
               placeholder="Max"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(parseFloat(e.target.value))}
+              value={formattedMaxPrice}
+              onChange={(e) => handlePriceChange(e, "max")}
             />
           </div>
         </div>
@@ -205,7 +227,12 @@ const SearchBar = ({ allBoats }) => {
               //   max={50000000}
               placeholder="Min"
               value={minLength}
-              onChange={(e) => setMinLength(parseFloat(e.target.value))}
+              onChange={(e) => {
+                const numLength = isNaN(parseFloat(e.target.value))
+                  ? ""
+                  : parseFloat(e.target.value);
+                setMinLength(numLength);
+              }}
             />
             <input
               type="number"
@@ -214,7 +241,12 @@ const SearchBar = ({ allBoats }) => {
               //   max={300}
               placeholder="Max"
               value={maxLength}
-              onChange={(e) => setMaxLength(parseFloat(e.target.value))}
+              onChange={(e) => {
+                const numLength = isNaN(parseFloat(e.target.value))
+                  ? ""
+                  : parseFloat(e.target.value);
+                setMaxLength(numLength);
+              }}
             />
           </div>
         </div>
