@@ -4,26 +4,13 @@
 
     .contact-aside {
         position: fixed;
-        bottom: 5%;
-        right: 2%;
+        bottom: 3%;
+        right: 1%;
         z-index: 999;
 
         @include md {
-            right: 5%;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background-color: rgba($color-accent-sky, .7);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            /* Center the circle exactly behind the icon */
-            z-index: -1;
+            right: 4%;
+            bottom: 2%;
         }
 
         &:hover,
@@ -31,24 +18,65 @@
             cursor: pointer;
         }
 
-        .salesRep-container {
+        .salesRep-popup {
             position: fixed;
-            bottom: 12%;
+            bottom: 13%;
             right: 1%;
 
             @include md {
                 right: 0;
                 bottom: 14%;
             }
-
         }
 
-        .message-icon,
-        .message-clsoe-icon {
-            color: $color-text-secondary;
-            position: relative;
-            width: 40px;
-            height: 40px;
+        .message-close {
+            width: 80px;
+            height: 80px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background-color: rgba($color-accent-sky, .7);
+
+            @include md {
+                height: 50px;
+                width: 50px;
+            }
+
+            .message-clsoe-icon {
+                color: $color-text-secondary;
+                // position: relative;
+                width: 50px;
+                height: 50px;
+
+                @include md {
+                    width: 30px;
+                    height: 30px;
+                }
+
+            }
+        }
+
+
+
+        .brokerImage-icon {
+            
+            img {
+                width: 80px;
+                height: 80px;
+                object-fit: cover;
+                border-radius: 50%;
+                display: block;
+                // box-shadow: rgba(orange, 0.8) 0px 0px 0px 3px;
+            box-shadow: rgba(4, 165, 206, 0.1) 5px 7px 7px 6px, rgba(4,
+                165,
+                206,
+                0.2) 0px 2px 16px 2px;
+
+                @include md {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
 
         }
 
@@ -154,13 +182,105 @@
             }
         }
 
-        .boat-description {
-            padding: 2rem;
+        .description-content {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
+
+            @include md {
+                flex-direction: column;
+            }
+
+
+            .boat-description {
+                flex: 3;
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                @include md {
+                    padding: 0 1rem 2rem;
+                }
+            }
+
+            .boat-salesRep {
+                height: fit-content;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+                gap: 1rem;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+                @include md {
+                    margin-bottom: 2rem;
+                }
+
+                .salesRep-title {
+                    padding: .8rem;
+                    background-color: $color-background-light-grey;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: .7rem;
+
+                }
+
+                .salesRep-body {
+                    padding: 0 1rem;
+
+                    .salesRep-image {
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 5%;
+                            object-fit: cover;
+                            // border: 1px solid red;
+                        }
+
+                        figcaption {
+                            margin-top: 1rem;
+                            display: grid;
+                            place-items: center;
+                        }
+                    }
+
+
+                    .contact-types {
+                        width: 100%;
+                        padding: 0 1rem;
+                        margin: 1rem 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+
+                        a {
+                            padding: .5rem .8rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: .7rem;
+                            outline: 1px solid $color-accent-gold;
+
+                            &:hover {
+                                background-color: rgba($color-accent-gold, .3);
+                            }
+
+
+
+                        }
+                    }
+
+                }
+
+
+            }
 
         }
+
+
 
         .listingDetails-button-container {
             display: flex;

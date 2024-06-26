@@ -34,7 +34,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <ContextsProvider>
         <App />
       </ContextsProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
 
     {/* </Auth0Provider> */}

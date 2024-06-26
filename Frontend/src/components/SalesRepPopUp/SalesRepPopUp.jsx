@@ -7,22 +7,9 @@ import { FiPhone } from "react-icons/fi";
 import { TfiEmail } from "react-icons/tfi";
 import { BsChatText } from "react-icons/bs";
 
-const SalesRepPopUp = ({ salesRep, boatInfo }) => {
-  console.log(salesRep);
-  const [broker, setBroker] = useState(null);
-  console.log(broker);
+const SalesRepPopUp = ({ broker, boatInfo }) => {
 
-  useEffect(() => {
-    if (salesRep) {
-      const matchingBroker = brokersInfo.find(
-        (obj) =>
-          salesRep.PartyId == obj.salesRepId ||
-          salesRep.Name.includes(obj.firstName)
-      );
-
-      setBroker(matchingBroker || brokersInfo[0]); // Fallback to the owner if no match is found
-    }
-  }, [salesRep]);
+  // console.log(broker);
 
   const sendText = () => {
     if (isMobile) {

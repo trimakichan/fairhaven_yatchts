@@ -22,7 +22,8 @@ const HomePage = () => {
   const [newListings, setNewListings] = useState(null);
   const [visibleCount, setVisibleCount] = useState(MAX_ITEMS_PER_LOAD);
   const [newListingsInitial, setNewListingsInitial] = useState(null);
-
+  const [isLoadMore, setIsLoadMore] = useState(false)
+ 
   const {
     isLoading,
     isError,
@@ -30,16 +31,10 @@ const HomePage = () => {
     isFetching,
     data: listings,
   } = useBoatListings();
-  console.log(listings);
+  // console.log(listings);
 
   useEffect(() => {
-      
-    // const fetchApi = async () => {
-    //   const res = await axios.get
-    // }
-
-
-    if (listings) {
+          if (listings) {
       const cutoffDate = getCutoffDate();
       const filteredListings = listings.filter((item) => {
         const itemDate = new Date(item.ItemReceivedDate);
@@ -56,7 +51,13 @@ const HomePage = () => {
   // Function to load more listings
   const loadMore = () => {
     setVisibleCount((prev) => newListings.length);
+    setIsLoadMore(true)
   };
+
+  const hide = () => {
+    setVisibleCount(MAX_ITEMS_PER_LOAD);
+    setIsLoadMore(false)
+  }
 
   return (
     <main className="homePage">
@@ -111,7 +112,7 @@ const HomePage = () => {
             </motion.div>
           </div>
 
-          <div className="listings-container">
+          <div className="newListings-container">
             {/* <Loading /> */}
             {isLoading && <div>Loading....</div>}
             {newListings &&
@@ -121,11 +122,12 @@ const HomePage = () => {
           </div>
 
           <div className="buttonContainer">
-            {/* <Link to="buy"> */}
-            <button aria-label="View all the new listings" onClick={loadMore}>
-              View all
+            <button
+              aria-label="View all the new listings"
+              onClick={!isLoadMore ? loadMore : hide}
+            >
+              {!isLoadMore ? "View all" : "Hide"}
             </button>
-            {/* </Link> */}
           </div>
         </div>
       </article>
