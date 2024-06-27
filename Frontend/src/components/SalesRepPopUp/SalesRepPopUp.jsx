@@ -8,7 +8,6 @@ import { TfiEmail } from "react-icons/tfi";
 import { BsChatText } from "react-icons/bs";
 
 const SalesRepPopUp = ({ broker, boatInfo }) => {
-
   // console.log(broker);
 
   const sendText = () => {
@@ -58,24 +57,20 @@ const SalesRepPopUp = ({ broker, boatInfo }) => {
             </div>
 
             <div className="contact-buttons">
-              <a href={`tel:${broker.cell}`}>
-                <button aria-label="Call the broker">
-                  <FiPhone />
-                  <div className="textSLora bold">Call</div>
-                </button>
+              <a href={`tel:${broker.cell}`} aria-label="Call the broker">
+                <FiPhone />
+                <div className="textSLora bold">Call</div>
               </a>
               {/* Text button will show if the device is mobile */}
               {isMobile && (
-                <button aria-label="Text the broker" onClick={sendText}>
+                <a aria-label="Text the broker" onClick={sendText}>
                   <BsChatText />
                   <div className="textSLora bold">Text</div>
-                </button>
+                </a>
               )}
-              <a href={`mailto: ${broker.email}`}>
-                <button aria-label="Email the broker">
-                  <TfiEmail />
-                  <div className="textSLora bold">Email</div>
-                </button>
+              <a href={`mailto: ${broker.email}`} aria-label="Email the broker">
+                <TfiEmail />
+                <div className="textSLora bold">Email</div>
               </a>
             </div>
           </section>

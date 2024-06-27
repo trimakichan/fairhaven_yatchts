@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import parse from "html-react-parser";
 import {
   useFadeInYAxisAnimSettings,
@@ -28,10 +27,9 @@ import { PiChatsDuotone } from "react-icons/pi";
 const ListingDetails = () => {
   const fadeInYAxisAnimSettings = useFadeInYAxisAnimSettings();
   const fadeInAnimSettings = useFadeInAnimSettings();
-  const [isContactPopupOn, setIsContactPopupOn] = useState(false);
+  const [IsSaleRepOpen, setIsSaleRepOpen] = useState(false);
   const [broker, setBroker] = useState(null);
   const navigate = useNavigate();
-  // console.log(isContactPopupOn);
   const { id } = useParams();
   const {
     isLoading,
@@ -39,8 +37,6 @@ const ListingDetails = () => {
     error,
     data: boatListing,
   } = useBoatListingsById(id);
-  // console.log(boatListing);
-  // console.log(broker);
 
   useEffect(() => {
     if (boatListing) {
@@ -59,9 +55,7 @@ const ListingDetails = () => {
 
   const setFixedFontSize = (text) => {
     if (!text) return;
-
     let description;
-    //remove all the styles in the html strings.
     description = text.replace(/ style="[^"]*"/g, "");
     return description.replace(
       /<strong>customContactInformation<\/strong><br>/g,
@@ -103,11 +97,27 @@ const ListingDetails = () => {
 
   return (
     <main className="listingDetails">
-      {/* Sales rep popup section */}
       <div className="contact-aside">
-        {isContactPopupOn ? (
-          <>
-            <div className="salesRep-popup">
+        <AnimatePresence>
+          {IsSaleRepOpen && (
+            <motion.div
+              key="salesRep-popup"
+              className="salesRep-popup"
+              initial={{
+                opacity: 0,
+                y: 0,
+                x: 60,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                x: 0,
+              }}
+              transition={{
+                ease: "easeInOut",
+              }}
+              exit={{ opacity: 0, y: 0, x: 50 }}
+            >
               <SalesRepPopUp
                 broker={broker}
                 boatInfo={{
@@ -115,21 +125,37 @@ const ListingDetails = () => {
                   model: boatListing.Model,
                 }}
               />
-            </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-            <div className="message-close">
-              <AiOutlineCloseCircle
-                className="message-clsoe-icon"
-                aria-label="Close Contact Popup"
-                onClick={() => setIsContactPopupOn(!isContactPopupOn)}
-              />
-            </div>
-          </>
+        {IsSaleRepOpen ? (
+          <div className="message-close">
+            <AiOutlineCloseCircle
+              className="message-clsoe-icon"
+              aria-label="Close Contact Popup"
+              onClick={() => setIsSaleRepOpen(!IsSaleRepOpen)}
+            />
+          </div>
         ) : (
-          <div
+          <motion.div
             className="brokerImage-icon"
             aria-label="Contact Sales"
-            onClick={() => setIsContactPopupOn(!isContactPopupOn)}
+            onClick={() => {
+              setIsSaleRepOpen(!IsSaleRepOpen);
+            }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.3,
+              ease: [0, 0.71, 0.2, 1.01],
+              scale: {
+                type: "spring",
+                damping: 5,
+                stiffness: 100,
+                restDelta: 0.001,
+              },
+            }}
           >
             {broker && (
               <img
@@ -139,11 +165,10 @@ const ListingDetails = () => {
                 loading="lazy"
               />
             )}
-          </div>
+          </motion.div>
         )}
       </div>
 
-      {/* Title Section */}
       <div className="wrapper listingDetails-title-bg">
         <div className=""></div>
 
@@ -179,7 +204,6 @@ const ListingDetails = () => {
         </motion.div>
       </div>
 
-      {/* Image Section */}
       <ImageDetailSection boatListing={boatListing} />
 
       <div className="wrapper">
@@ -195,7 +219,6 @@ const ListingDetails = () => {
           <div className="description-content">
             <div className="boat-description">
               {boatDescription && <p>{parse(boatDescription)}</p>}
-
               {additionalDescription && <p>{parse(additionalDescription)}</p>}
             </div>
             <aside className="boat-salesRep">
@@ -227,7 +250,6 @@ const ListingDetails = () => {
                       <FiPhone />
                       <div className="textSLora bold">Call</div>
                     </a>
-                    {/* Text button will show if the device is mobile */}
                     {isMobile && (
                       <a aria-label="Text the broker" onClick={sendText}>
                         <BsChatText />

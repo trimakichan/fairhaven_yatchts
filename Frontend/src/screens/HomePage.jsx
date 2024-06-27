@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import axios from 'axios'
-import { motion } from "framer-motion";
+import axios from "axios";
+import { motion, AnimatePresence } from "framer-motion";
 import AnchorIcon from "../components/AnchorIcon/AnchorIcon";
 import Card from "../components/Card/Card";
 
@@ -22,8 +22,8 @@ const HomePage = () => {
   const [newListings, setNewListings] = useState(null);
   const [visibleCount, setVisibleCount] = useState(MAX_ITEMS_PER_LOAD);
   const [newListingsInitial, setNewListingsInitial] = useState(null);
-  const [isLoadMore, setIsLoadMore] = useState(false)
- 
+  const [isLoadMore, setIsLoadMore] = useState(false);
+
   const {
     isLoading,
     isError,
@@ -34,7 +34,7 @@ const HomePage = () => {
   // console.log(listings);
 
   useEffect(() => {
-          if (listings) {
+    if (listings) {
       const cutoffDate = getCutoffDate();
       const filteredListings = listings.filter((item) => {
         const itemDate = new Date(item.ItemReceivedDate);
@@ -51,13 +51,13 @@ const HomePage = () => {
   // Function to load more listings
   const loadMore = () => {
     setVisibleCount((prev) => newListings.length);
-    setIsLoadMore(true)
+    setIsLoadMore(true);
   };
 
   const hide = () => {
     setVisibleCount(MAX_ITEMS_PER_LOAD);
-    setIsLoadMore(false)
-  }
+    setIsLoadMore(false);
+  };
 
   return (
     <main className="homePage">
@@ -99,38 +99,39 @@ const HomePage = () => {
         </section>
       </div>
 
-      <article className="homePage__listings">
-        <div className="wrapper">
-          <div className="listing-title-container">
-            <motion.div className="listing-title" {...fadeInAnimSettings}>
-              <p>Yachts</p>
-              <h2 className="home-bg-text">New Listings</h2>
-              <div className="subtitle">
-                Explore our new and featured yacht listings.
-              </div>
-              <AnchorIcon />
-            </motion.div>
-          </div>
+        <article className="homePage__listings">
+          <div className="wrapper">
+            <div className="listing-title-container">
+              <motion.div className="listing-title" {...fadeInAnimSettings}>
+                <p>Yachts</p>
+                <h2 className="home-bg-text">New Listings</h2>
+                <div className="subtitle">
+                  Explore our new and featured yacht listings.
+                </div>
+                <AnchorIcon />
+              </motion.div>
+            </div>
 
-          <div className="newListings-container">
-            {/* <Loading /> */}
-            {isLoading && <div>Loading....</div>}
-            {newListings &&
-              newListingsInitial.map((listing, index) => {
-                return <Card key={index} item={listing} />;
-              })}
-          </div>
+            <div className="newListings-container">
+              {/* <Loading /> */}
+              {isLoading && <div>Loading....</div>}
+              {newListings &&
+                newListingsInitial.map((listing, index) => {
+                  return <Card key={index} item={listing} />;
+                })}
+            </div>
 
-          <div className="buttonContainer">
-            <button
-              aria-label="View all the new listings"
-              onClick={!isLoadMore ? loadMore : hide}
-            >
-              {!isLoadMore ? "View all" : "Hide"}
-            </button>
+            <div className="buttonContainer">
+              <button
+                aria-label="View all the new listings"
+                onClick={!isLoadMore ? loadMore : hide}
+              >
+                {!isLoadMore ? "View all" : "Hide"}
+              </button>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+
 
       <div className="wrapper">
         <section className="homePage__section1 sectionLayout">
