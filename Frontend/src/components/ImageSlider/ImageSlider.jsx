@@ -1,6 +1,11 @@
-import { useCallback, useContext, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import "./imageSlider.scss";
-import { handleTouchStart, handleTouchMove, handleTouchEnd } from "../../utilities/utilities";
+import {
+  handleTouchStart,
+  handleTouchMove,
+  handleTouchEnd,
+} from "../../utilities/utilities";
+import { Contexts } from "../../contexts/contexts";
 
 import { AiTwotoneCloseSquare } from "react-icons/ai";
 import {
@@ -8,14 +13,12 @@ import {
   PiArrowSquareRightDuotone,
 } from "react-icons/pi";
 
-import { Contexts } from "../../contexts/contexts";
-
 const ImageSlider = ({ data: { images, index } }) => {
-  const { setIsImageSliderOn } = useContext(Contexts);
+  const { setIsImageSliderOn, isOpenNavForSlider, setIsOpenNavForSlider } =
+    useContext(Contexts);
   const sliderRef = useRef(null);
-  console.log(images);
+  // console.log(images);
   const slides = images?.map((item) => item.Uri);
-  // console.log(slides)
 
   const [currentIndex, setCurrentIndex] = useState(index);
 
@@ -53,9 +56,12 @@ const ImageSlider = ({ data: { images, index } }) => {
       {slides && slides.length > 0 && (
         <>
           <AiTwotoneCloseSquare
-            className="closeStyle closePositions"
+            className="closeStyle close-position"
             aria-label="Close Image Slider"
-            onClick={() => setIsImageSliderOn(false)}
+            onClick={() => {
+              setIsImageSliderOn(false);
+              setIsOpenNavForSlider(!isOpenNavForSlider);
+            }}
           />
           <div className="slider-content">
             <PiArrowSquareLeftDuotone

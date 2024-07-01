@@ -1,11 +1,9 @@
 /* eslint-disable no-unused-vars */
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import AnchorIcon from "../components/AnchorIcon/AnchorIcon";
 import Card from "../components/Card/Card";
 
 // eslint-disable-next-line no-unused-vars
-import { listingData } from "../data/dammyData";
 import { Link } from "react-router-dom";
 import { useFadeInYAxisAnimSettings } from "../animations/animationHooks";
 import { useBoatListings } from "../api/fetchListings";
@@ -63,19 +61,31 @@ const HomePage = () => {
     <main className="homePage">
       <header className="homePage__hero">
         <div className="hero-content">
-          <motion.p className="heroHeadingText" {...fadeInAnimSettings}>
+          <motion.div className="heroHeadingText" {...fadeInAnimSettings}>
             <span className="spanText">WELCOME TO</span> <br />
             FAIRHAVEN YACHTS
-          </motion.p>
-          <p className="heroParagraph">
-            Experience the luxury of owning a premium yacht. <br></br>Browse our
-            extensive collection and make your dreams a reality.
+          </motion.div>
+          <p className="heroParagraph ">
+            Experience the pleasure of owning a yacht.  <br></br>Browse our
+           collection and make your dreams a reality.
           </p>
-          <div className="buttons">
-            <button aria-label="Explore our yacht collection">Explore</button>
-            <button aria-label="Learn more about Fairhaven Yachts">
-              Learn More
-            </button>
+          <div className="hero-buttons">
+            <Link to="buy">
+              <button
+                aria-label="Explore our yacht collection"
+                className="explore-button"
+              >
+                Explore
+              </button>
+            </Link>
+            <Link to="about">
+              <button
+                aria-label="Learn more about Fairhaven Yachts"
+                className="learnMore-button"
+              >
+                Learn More
+              </button>
+            </Link>
           </div>
         </div>
       </header>
@@ -99,39 +109,39 @@ const HomePage = () => {
         </section>
       </div>
 
-        <article className="homePage__listings">
-          <div className="wrapper">
-            <div className="listing-title-container">
-              <motion.div className="listing-title" {...fadeInAnimSettings}>
-                <p>Yachts</p>
-                <h2 className="home-bg-text">New Listings</h2>
-                <div className="subtitle">
-                  Explore our new and featured yacht listings.
-                </div>
-                <AnchorIcon />
-              </motion.div>
-            </div>
-
-            <div className="newListings-container">
-              {/* <Loading /> */}
-              {isLoading && <div>Loading....</div>}
-              {newListings &&
-                newListingsInitial.map((listing, index) => {
-                  return <Card key={index} item={listing} />;
-                })}
-            </div>
-
-            <div className="buttonContainer">
-              <button
-                aria-label="View all the new listings"
-                onClick={!isLoadMore ? loadMore : hide}
-              >
-                {!isLoadMore ? "View all" : "Hide"}
-              </button>
-            </div>
+      <article className="homePage__listings" id="new-listings">
+        <div className="wrapper">
+          <div className="listing-title-container">
+            <motion.div className="listing-title" {...fadeInAnimSettings}>
+              <p>Yachts</p>
+              <h2 className="home-bg-text">New Listings</h2>
+              <div className="subtitle">
+                Explore our new and featured yacht listings.
+              </div>
+              <AnchorIcon />
+            </motion.div>
           </div>
-        </article>
 
+          <div className="newListings-container">
+            {/* <Loading /> */}
+            {isLoading && <div>Loading....</div>}
+            {newListings &&
+              newListingsInitial.map((listing, index) => {
+                return <Card key={index} item={listing} />;
+              })}
+          </div>
+
+          <div className="newListings-buttons">
+            <a
+              href={!isLoadMore && "#new-listings"}
+              aria-label="View all the new listings"
+              onClick={!isLoadMore ? loadMore : hide}
+            >
+              {!isLoadMore ? "View all" : "Hide"}
+            </a>{" "}
+          </div>
+        </div>
+      </article>
 
       <div className="wrapper">
         <section className="homePage__section1 sectionLayout">
@@ -160,7 +170,7 @@ const HomePage = () => {
           </motion.article>
 
           <img
-            src="/home2.jpg"
+            src="/home2.webp"
             alt="A power boat blasting on the water"
             className="imageCover"
             loading="lazy"
@@ -171,11 +181,12 @@ const HomePage = () => {
       <section className="homePage__section2">
         <div className="wrapper sectionLayout">
           <img
-            src="/home3.jpg"
+            src="/home3.webp"
             alt="marina"
-            className="imageCover imageOrder"
+            className="imageCover image-order"
             loading="lazy"
           />
+
           <motion.div
             className="sectionContentLayout section2-content"
             {...fadeInAnimSettings}

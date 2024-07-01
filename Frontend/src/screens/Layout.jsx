@@ -7,18 +7,23 @@ import { Contexts } from "../contexts/contexts";
 import Footer from "../components/Footer/Footer";
 
 const Layout = () => {
-  const { openNav, setOpenNav, isMobileSliderOn, isImageSliderOn } =
-    useContext(Contexts);
+  const {
+    isOpenNavMobile,
+    setIsOpenNavMobile,
+    isOpenNavForSlider,
+    isMobileSliderOn,
+    isImageSliderOn,
+  } = useContext(Contexts);
 
-    const toggleNav = () => setOpenNav()
+  const toggleNav = () => setIsOpenNavMobile();
 
   return (
     <>
-      <div className="layout" onClick={openNav ? toggleNav : undefined}>
+      <div className="layout" onClick={isOpenNavMobile ? toggleNav : undefined}>
         <header>
-          <Navbar />
+          {isOpenNavForSlider ? '' : <Navbar />}
         </header>
-        <div className={openNav || isImageSliderOn ? "lock" : ""}>
+        <div className={isOpenNavMobile || isImageSliderOn ? "lock" : ""}>
           <div className="content">
             <Outlet />
           </div>
@@ -30,7 +35,6 @@ const Layout = () => {
 };
 
 export default Layout;
-
 
 // const ProtectedRoute = () => {
 //     const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
@@ -54,5 +58,3 @@ export default Layout;
 //         </div>)
 
 // }
-
-

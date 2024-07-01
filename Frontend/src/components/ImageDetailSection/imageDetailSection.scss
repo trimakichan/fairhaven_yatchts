@@ -7,8 +7,8 @@
 
        &__main {
            margin: 0 auto;
-           width: 100%;
-           height: 800px;
+           width: 80%;
+           height: 600px;
            // aspect-ratio: 4/2;
            margin-bottom: 2rem;
 
@@ -21,6 +21,7 @@
                height: 100%;
                object-fit: cover;
                object-position: center;
+               cursor: pointer;
            }
        }
 
@@ -49,14 +50,13 @@
                    display: none;
                }
 
-               .image-container {
-
-
+               .small-slider {
                    img {
                        width: 200px;
                        height: 150px;
                        object-fit: cover;
                        object-position: center;
+                       cursor: pointer;
                    }
                }
            }

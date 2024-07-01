@@ -8,11 +8,16 @@
     }
 
     &__hero {
-        @include heroSectionStyle('/about1.jpg', 20% 40%);
+        @include heroSectionStyle('/about1.webp', 20% 70%);
+
+        @include md {
+            @include heroSectionStyle('/about1.webp', 60% 0%);
+        }
     }
 
+
     &__team {
-        padding: 0 3rem 2rem;
+        // padding: 0 3rem 2rem;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -33,23 +38,139 @@
             @include md {
                 width: 100%;
             }
+
+            .about-bg-text {
+                @include bgWords('Experts',
+                    18rem,
+                    -130%)
+            }
         }
 
-        .team-members {
 
+        .team-members-info {
+            // padding: 1rem;
+            width: 100%;
+            height: auto;
+            border: 1px solid $color-accent-gold;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
 
             @include md {
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
+                grid-template-columns: 1fr;
+
             }
 
-            @include sm {
-                grid-template-columns: 1fr;
+            .members {
+                padding: 2rem 0;
+                height: fit-content;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                // place-items: center;
+
+                @include lg {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @include md {
+                    order: 2
+                }
+
+
             }
+
+            .member-details {
+                padding: 2rem 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                background-color: $color-background-light-grey;
+
+                .member-image {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 2rem;
+
+                    width: 60%;
+                    height: 40%;
+
+                    @include md {
+                        width: 80%;
+                        height: 60%;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 30px;
+                        display: block;
+
+                    }
+
+
+                }
+
+                .member-content {
+                    // border: 1px solid red;
+                    padding: 0 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 2rem;
+
+                    .contact-info {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: .8rem;
+
+                        @include lg {
+                            flex-direction: column;
+                        }
+
+                        // justify-content: space-between;
+
+                        .info-align {
+                            display: flex;
+                            align-items: center;
+                            gap: .7rem;
+
+                        }
+                    }
+
+                    .description {
+                        width: 90%;
+
+                        @include md {
+                            width: 100%;
+                        }
+                    }
+
+
+                }
+
+            }
+
         }
+
+        // .team-members {
+
+        //     display: grid;
+        //     grid-template-columns: 1fr 1fr 1fr;
+        //     gap: 2rem;
+
+        //     @include md {
+        //         grid-template-columns: 1fr 1fr;
+        //         gap: 1rem;
+        //     }
+
+        //     @include sm {
+        //         grid-template-columns: 1fr;
+        //     }
+        // }
     }
 
     &__section1 {

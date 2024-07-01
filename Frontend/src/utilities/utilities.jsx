@@ -23,12 +23,11 @@ let touchEnd = 0
 
  export const handleTouchEnd = (moveSlide) => {
     if (touchStart - touchEnd > 50) {
-     console.log("right")
-      moveSlide("right");
+      moveSlide( "right");
     } else if (touchEnd - touchStart > 50) {
-       console.log("left");
       moveSlide("left");
     }
   };
+
 
   

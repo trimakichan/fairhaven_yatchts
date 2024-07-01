@@ -30,8 +30,8 @@
         }
 
         .message-close {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             display: grid;
             place-items: center;
             border-radius: 50%;
@@ -45,8 +45,8 @@
             .message-clsoe-icon {
                 color: $color-text-secondary;
                 // position: relative;
-                width: 50px;
-                height: 50px;
+                width: 35px;
+                height: 35px;
 
                 @include md {
                     width: 30px;
@@ -61,8 +61,8 @@
         .brokerImage-icon {
             
             img {
-                width: 80px;
-                height: 80px;
+                width: 70px;
+                height: 70px;
                 object-fit: cover;
                 border-radius: 50%;
                 display: block;

@@ -6,7 +6,7 @@
     &__hero {
         padding: 5rem 5rem;
         height: 100svh;
-        background: url('/home1.jpg') no-repeat;
+        background: url('/home1.webp') no-repeat;
         background-position: 20% 40%;
         background-size: cover;
         background-attachment: fixed;
@@ -15,6 +15,7 @@
 
         @include lg {
             padding: 3rem 1rem;
+            background-position: 41%;
         }
 
         @include md {
@@ -30,23 +31,27 @@
             //set the margin-top so navbar won't cover the hero title in mobile. 
             margin-top: 80px;
             color: $color-text-secondary;
-            background-color: transparent;
 
+            @include lg {
+                padding: 1rem;
+                width: fit-content;
+                background-color: rgba($color-secondary, .3);
+            }
             .spanText {
                 font-size: clamp(1.7rem, 3vw + 1rem, 3rem);
             }
 
-            .buttons {
+            .hero-buttons {
                 margin-top: 2rem;
                 display: flex;
                 gap: 1.5rem;
 
-                button {
-                    @include customButtonStyle($color-accent-gold, $color-text-secondary, $color-primary)
+                .explore-button {
+                    @include customButtonStyle($color-primary-transparent, $color-text-secondary, $color-primary)
                 }
 
-                button:nth-child(2) {
-                    @include customButtonStyle($color-primary-transparent, $color-text-secondary, $color-primary)
+                .learnMore-button {
+                    @include customButtonStyle($color-accent-gold, $color-text-secondary, $color-primary)
                 }
             }
         }
@@ -157,18 +162,16 @@
 
         }
 
-        .buttonContainer {
-            // border: 1px solid red;
+        .newListings-buttons{
             margin-top: 3rem;
             display: flex;
             justify-content: center;
 
-            button {
+            a {
                 margin: auto auto;
                 @include buttonStyleSimple;
             }
         }
-
     }
 
     &__section1 {
@@ -193,10 +196,11 @@
 
         //change the class name
         @include md {
-            .imageOrder {
+            .image-order {
                 order: 2;
             }
         }
+
 
         .section2-content {
             .section2-benefits {

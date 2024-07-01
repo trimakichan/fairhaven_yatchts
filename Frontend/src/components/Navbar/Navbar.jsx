@@ -10,18 +10,18 @@ import { IoCloseOutline } from "react-icons/io5";
 import { TiPhoneOutline } from "react-icons/ti";
 
 const Navbar = () => {
-  const { openNav, setOpenNav } = useContext(Contexts);
+  const { isOpenNavMobile, setIsOpenNavMobile } = useContext(Contexts);
   const { scrollY } = useScroll();
-  const [navHidden, setNavHidden] = useState(false);
+  const [isNavHiddenOnScroll, setIsNavHiddenOnScroll] = useState(false);
   const { isNavAnimFinished, setIsNavAnimFinished } = useContext(Contexts);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
 
-    if (latest > previous && latest > 300 && !openNav) {
-      setNavHidden(true);
+    if (latest > previous && latest > 300 && !isOpenNavMobile) {
+      setIsNavHiddenOnScroll(true);
     } else {
-      setNavHidden(false);
+      setIsNavHiddenOnScroll(false);
     }
   });
 
@@ -66,7 +66,7 @@ const Navbar = () => {
         visible: { y: 0 },
         hidden: { y: "-100%" },
       }}
-      animate={navHidden ? "hidden" : "visible"}
+      animate={isNavHiddenOnScroll ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
     >
       <div className="navbar__container">
@@ -79,7 +79,7 @@ const Navbar = () => {
           {navLinks.map((link, index) => renderLink(link, index))}
 
           {/* For smaller screen */}
-          <div className={openNav ? "menu-icon inactive" : "menu-icon"}>
+          <div className={isOpenNavMobile ? "menu-icon inactive" : "menu-icon"}>
             <div className="icons-container">
               <a href="tel:1-206-940-9088">
                 <TiPhoneOutline className="icon phone-icon" />
@@ -87,15 +87,15 @@ const Navbar = () => {
 
               <CiMenuFries
                 className="icon"
-                onClick={() => setOpenNav(!openNav)}
+                onClick={() => setIsOpenNavMobile(!isOpenNavMobile)}
               />
             </div>
           </div>
-          <div className={openNav ? "menu active" : "menu"}>
+          <div className={isOpenNavMobile ? "menu active" : "menu"}>
             <IoCloseOutline
               className="close-icon"
               onClick={() => {
-                setOpenNav(!openNav);
+                setIsOpenNavMobile(!isOpenNavMobile);
               }}
             />
             <a href="/" className="logo-link">

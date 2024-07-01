@@ -2,6 +2,8 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import "./imageDetailSection.scss";
 import { Contexts } from "../../contexts/contexts";
+import { handleTouchStart, handleTouchEnd, handleTouchMove } from "../../utilities/utilities";
+
 import ImageSlider from "../ImageSlider/ImageSlider";
 import MobileImageList from "../MobileImageList/MobileImageList";
 
@@ -22,8 +24,15 @@ import { GiSailboat } from "react-icons/gi";
 import { CiViewList } from "react-icons/ci";
 
 const ImageDetailSection = ({ boatListing }) => {
-  const { isMobileSliderOn, setIsMobileSliderOn } = useContext(Contexts);
-  const { isImageSliderOn, setIsImageSliderOn } = useContext(Contexts);
+  const {
+    isMobileSliderOn,
+    setIsMobileSliderOn,
+    isOpenNavForSlider,
+    setIsOpenNavForSlider,
+    isImageSliderOn,
+    setIsImageSliderOn,
+  } = useContext(Contexts);
+
   const [mainImage, setMainImage] = useState(null);
   const [mainImageIndex, setMainImageIndex] = useState(0);
   const [imageIndex, setImageIndex] = useState(0);
@@ -31,50 +40,31 @@ const ImageDetailSection = ({ boatListing }) => {
   const sliderMobileRef = useRef(null);
 
   useEffect(() => {
-    console.log(boatListing);
+    // console.log(boatListing);
     if (boatListing?.Images.length > 0) {
       setMainImage(boatListing.Images[0].Uri);
     }
   }, [boatListing]);
 
-  let touchStart = 0;
-  let touchEnd = 0;
-
-  // Scroll Horizontally on Mobile by touching.
-  const handleTouchStart = (e) => {
-    // get the initial touch position
-    touchStart = e.targetTouches[0].clientX;
-    // console.log(touchStart)
-  };
-
-  const handleTouchMove = (e) => {
-    // update the touch position
-    touchEnd = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 50) {
-      moveSlide("touch", "right");
-    } else if (touchEnd - touchStart > 50) {
-      moveSlide("touch", "left");
-    }
-  };
 
   // This function is use for both mobile and desktop scrolls
-  const moveSlide = (type, direction) => {
-    const scrollAmount = 350;
+  const moveSlide = (direction) => {
 
-    if (type === "touch" && direction === "right") changeImageIndex("right");
-    if (type === "touch" && direction === "left") changeImageIndex("left");
-
-    if ((type === "click" && sliderRef.current) || sliderMobileRef.current) {
-      if (direction === "left") {
-        sliderRef.current.scrollLeft -= scrollAmount;
-      } else if (direction === "right") {
-        sliderRef.current.scrollLeft += scrollAmount;
-      }
-    }
+    if (direction === "right") changeImageIndex("right");
+    if (direction === "left") changeImageIndex("left");
   };
+
+    const moveSlideDesktop = (direction) => {
+      const scrollAmount = 400;
+
+      if (sliderRef.current || sliderMobileRef.current) {
+        if (direction === "left") {
+          sliderRef.current.scrollLeft -= scrollAmount;
+        } else if (direction === "right") {
+          sliderRef.current.scrollLeft += scrollAmount;
+        }
+      }
+    };
 
   // mobile
   const changeImageIndex = (direction) => {
@@ -110,7 +100,10 @@ const ImageDetailSection = ({ boatListing }) => {
             <img
               src={mainImage}
               alt={`A larger ${boatListing.MakeString} boat image`}
-              onClick={() => setIsImageSliderOn(true)}
+              onClick={() => {
+                setIsOpenNavForSlider(!isOpenNavForSlider);
+                setIsImageSliderOn(true);
+              }}
               loading="lazy"
             />
           ) : (
@@ -121,7 +114,7 @@ const ImageDetailSection = ({ boatListing }) => {
         <div className="listingDetails__images__slider">
           <PiArrowSquareLeftDuotone
             className="arrowStyle"
-            onClick={() => moveSlide("click", "left")}
+            onClick={() => moveSlideDesktop("left")}
           />
 
           <div
@@ -135,7 +128,7 @@ const ImageDetailSection = ({ boatListing }) => {
               return (
                 <div
                   key={index}
-                  className="image-container"
+                  className="small-slider"
                   onClick={() => {
                     setMainImageIndex(index);
                     setMainImage(boatListing.Images[index].Uri);
@@ -154,7 +147,7 @@ const ImageDetailSection = ({ boatListing }) => {
 
           <PiArrowSquareRightDuotone
             className="arrowStyle"
-            onClick={() => moveSlide("click", "right")}
+            onClick={() => moveSlideDesktop("right")}
           />
         </div>
       </div>
@@ -171,7 +164,7 @@ const ImageDetailSection = ({ boatListing }) => {
           ref={sliderMobileRef}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+          onTouchEnd={() => handleTouchEnd(moveSlide)}
         >
           <PiArrowSquareLeftDuotone
             className="arrowSmallStyle arrowLeftPositon"

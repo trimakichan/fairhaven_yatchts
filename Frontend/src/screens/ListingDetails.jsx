@@ -17,7 +17,7 @@ import SalesRepPopUp from "../components/SalesRepPopUp/SalesRepPopUp";
 
 //icons
 import { GrLocation } from "react-icons/gr";
-import { AiOutlineMessage, AiOutlineCloseCircle } from "react-icons/ai";
+import {  AiOutlineCloseCircle } from "react-icons/ai";
 import { RxDoubleArrowLeft } from "react-icons/rx";
 import { FiPhone } from "react-icons/fi";
 import { TfiEmail } from "react-icons/tfi";
@@ -148,7 +148,7 @@ const ListingDetails = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{
               duration: 0.3,
-              ease: [0, 0.71, 0.2, 1.01],
+              ease: [0, 0.71, 0.2, 1.0],
               scale: {
                 type: "spring",
                 damping: 5,

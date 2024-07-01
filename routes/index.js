@@ -21,7 +21,7 @@ router.get('/', cache('15 minutes'), async (req, res) => {
         })
         const apiRes = await needle('get', `${API_BASE_URL}?${params}&status=active,sale%20pending`)
         const data = apiRes.body
-   
+
         res.status(200).json(data)
 
     } catch (error) {

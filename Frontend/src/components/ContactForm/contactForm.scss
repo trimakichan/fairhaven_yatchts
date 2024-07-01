@@ -19,12 +19,37 @@
             width: 100%;
             padding: .8rem;
             border-radius: 5px;
+            outline: none;
             border: 1px solid $color-accent-gold;
             background-color: rgba(#fff, .8);
+
+            &:focus, &:active {
+                        border: 2px solid #1e3a8a;
+                        outline: none;
+            }
+         
         }
 
         textarea {
             min-height: 15rem;
+        }
+
+        .invalid {
+            border: 2px solid #dc2626;
+            box-shadow: 1px 1px 4px #dc2626;
+
+            &:focus,
+                &:active {
+                    border: 2px solid #dc2626;
+                    outline: none;
+                }
+        }
+
+        .info-error {
+            color: #dc2626;
+            display: flex;
+            align-items: center;
+            gap: .3rem;
         }
 
     }
@@ -46,8 +71,12 @@
         display: flex;
         justify-content: flex-end;
 
-        button {
+        .active-button {
             @include customButtonStyle($color-accent-gold, $color-text-secondary, $color-text-primary)
+        }
+
+        .disable-button {
+                @include customButtonStyle(rgba(grey, .4), rgba($color-text-primary, .5), $color-text-primary)
         }
     }
 

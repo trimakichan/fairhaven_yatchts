@@ -4,12 +4,20 @@ import { useFadeInYAxisAnimSettings } from "../animations/animationHooks";
 import { Link } from "react-router-dom";
 import TeamMember from "../components/TeamMember/TeamMember";
 import { brokersInfo } from "../data/brokersInfo";
+import { useContext } from "react";
+import { Contexts } from "../contexts/contexts";
+
+import { MdSmartphone } from "react-icons/md";
+import { TfiEmail } from "react-icons/tfi";
+
 
 const About = () => {
   const fadeInAnimSettings = useFadeInYAxisAnimSettings();
+  const { memberMain } = useContext(Contexts);
+
   return (
     <main className="about">
-      <article className="about__hero">
+      <header className="about__hero">
         <div className="heroBgStyle">
           <motion.div {...fadeInAnimSettings}>
             <h1>Connecting Yacht Enthusiasts</h1>
@@ -19,23 +27,85 @@ const About = () => {
             </div>
           </motion.div>
         </div>
-      </article>
+      </header>
 
       <div className="wrapper">
         <article className="about__team">
           <motion.div className="team-title" {...fadeInAnimSettings}>
             <p>Experienced</p>
-            <h2>Meet Our Team</h2>
+            <h2 className="about-bg-text">Meet Our Team</h2>
             <div className="subtitle">
               Get to know the experts behind our yacht brokerage firm.
             </div>
             <AnchorIcon />
           </motion.div>
 
-          <div className="team-members">
-            {brokersInfo.map((memeber, index) => (
-              <TeamMember key={index} memberInfo={memeber} />
-            ))}
+          <div className="team-members-info">
+            <div className="members">
+              {brokersInfo.map((member) => (
+                <TeamMember key={member.id} memberInfo={member} />
+              ))}
+            </div>
+
+            <div className="member-details" id="member-info">
+              {/* <TeamMember memberInfo={memberMain} /> */}
+
+              <figure className="member-image">
+                <img
+                  src={memberMain.image}
+                  alt={`${memberMain.firstName} ${memberMain.lastName} profile image`}
+                  loading="lazy"
+                />
+                <figcaption>
+                  <div className="textLLora bold">
+                    {memberMain.firstName} {memberMain.lastName}{" "}
+                    {memberMain.isOwner ? "| Owner" : ""}
+                  </div>
+                </figcaption>
+              </figure>
+
+              <div className="member-content">
+                <div className="contact-info textMJost">
+                  <>
+                    {memberMain.cell && (
+                      <div className="info-align">
+                        <MdSmartphone
+                          className="iconStyles"
+                          aria-label="Phone Icon"
+                        />
+                        <a
+                          href={`tel:${memberMain.cell}`}
+                          aria-label={`Call ${memberMain.firstName} ${memberMain.lastName} at +${memberMain.cell}`}
+                        >
+                          +{memberMain.cell}
+                        </a>
+                      </div>
+                    )}
+                  </>
+                  <div>
+                    {" "}
+                    {memberMain.email && (
+                      <div className="info-align">
+                        <TfiEmail
+                          className="iconStyles"
+                          aria-label="Email Icon"
+                        />{" "}
+                        <a
+                          href={`mailto:${memberMain.email}`}
+                          aria-label={`Email ${memberMain.firstName} ${memberMain.lastName}`}
+                        >
+                          {" "}
+                          {memberMain.email}
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="description textMRoboto">
+                  {memberMain.description}
+                </div>
+              </div>
+            </div>
           </div>
         </article>
       </div>
@@ -62,7 +132,7 @@ const About = () => {
           </motion.div>
 
           <img
-            src="/about2.jpg"
+            src="/about2.webp"
             alt="A closeup of half of the boat"
             className="imageCover"
             loading="lazy"
