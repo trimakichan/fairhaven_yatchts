@@ -33,7 +33,8 @@ const Review = ({ review: { review, index } }) => {
           <div className="bold">{review.name}</div>
           <div>{review.status}</div>
         </div>
-        <img src="/real_ships57.webp" alt="A boat image" loading="lazy" />
+        {/* /real_ships57.webp */}
+        <img src={review.image} alt="A boat image" loading="lazy" />
       </div>
     </motion.div>
   );
