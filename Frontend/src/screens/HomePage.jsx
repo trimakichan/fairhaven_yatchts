@@ -66,8 +66,8 @@ const HomePage = () => {
             FAIRHAVEN YACHTS
           </motion.div>
           <p className="heroParagraph ">
-            Experience the pleasure of owning a yacht.  <br></br>Browse our
-           collection and make your dreams a reality.
+            Experience the pleasure of owning a yacht. <br></br>Browse our
+            collection and make your dreams a reality.
           </p>
           <div className="hero-buttons">
             <Link to="buy">
@@ -124,7 +124,7 @@ const HomePage = () => {
 
           <div className="newListings-container">
             {/* <Loading /> */}
-            {isLoading && <div>Loading....</div>}
+            {isLoading && <Loading />}
             {newListings &&
               newListingsInitial.map((listing, index) => {
                 return <Card key={index} item={listing} />;
@@ -242,7 +242,7 @@ const HomePage = () => {
           <motion.div className="banners-container" {...fadeInAnimSettings}>
             <a href="https://www.yachtingmagazine.com/" target="_blank">
               <img
-                src="/yachting-logo.webp"
+                src="/banners/yachting-logo.webp"
                 alt="Yachting Magazine Logo"
                 title="Yachting Magazine"
                 loading="lazy"
@@ -250,7 +250,7 @@ const HomePage = () => {
             </a>
             <a href="https://www.passagemaker.com/" target="_blank">
               <img
-                src="/passagemaker-trawlerfest-logo.webp"
+                src="/banners/passagemaker-trawlerfest-logo.webp"
                 alt="Passagemaker Trawlerfest Logo"
                 title="Passagemaker Trawlerfest"
                 loading="lazy"
@@ -258,7 +258,7 @@ const HomePage = () => {
             </a>
             <a href="https://www.bonhams.com/" target="_blank">
               <img
-                src="/bonhams-logo.webp"
+                src="/banners/bonhams-logo.webp"
                 alt="Bohams Auction House Logo"
                 title="Bohams Auction House"
                 loading="lazy"
@@ -269,7 +269,7 @@ const HomePage = () => {
               target="_blank"
             >
               <img
-                src="/sevenstar-logo.webp"
+                src="/banners/sevenstar-logo.webp"
                 alt="Sevenstar Logo"
                 title="Sevenstar Yacht Transport"
                 loading="lazy"

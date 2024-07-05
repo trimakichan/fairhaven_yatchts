@@ -12,15 +12,8 @@ import { useBoatListings } from "../api/fetchListings";
 import Loading from "../components/Loading/Loading";
 import SearchBar from "../components/SearchBar/SearchBar";
 
-// const MAX_ITEMS_PER_LOAD = 6;
-
 const Listings = () => {
   const { boatResults } = useContext(Contexts);
-  // const [visibleCount, setVisibleCount] = useState(MAX_ITEMS_PER_LOAD);
-  // const { ref, inView } = useInView({
-  //   triggerOnce: false,
-  //   rootMargin: "100px 0px", // Consider adjusting rootMargin to better fit your use case
-  // });
   const fadeInAnimSettings = useFadeInYAxisAnimSettings();
 
   const {
@@ -30,15 +23,6 @@ const Listings = () => {
     isFetching,
     data: boatListings,
   } = useBoatListings();
-
-  // const boatListings = data?.slice(0, visibleCount);
-
-  // Update visibleCount when the last item comes into view
-  // useEffect(() => {
-  //   if (inView) {
-  //     setVisibleCount((prev) => prev + MAX_ITEMS_PER_LOAD);
-  //   }
-  // }, [inView]);
 
   return (
     <main className="listings">
@@ -63,16 +47,12 @@ const Listings = () => {
               </div>
 
               <div className="sale-listings">
-                {/* Always display filteredResults if they exist and contain elements */}
                 {boatResults &&
                   boatResults.length > 0 &&
                   boatResults.map((boat, index) => (
                     <Card key={index} item={boat} />
                   ))}
               </div>
-              {/* <button>Load More</button> */}
-              {/* This div is observed to trigger loading more items */}
-              {/* <div ref={ref} className="load-more-trigger" /> */}
             </>
           ) : (
             <Loading />
@@ -95,7 +75,7 @@ const Listings = () => {
             </Link>
           </div>
           <img
-            src="/listings2.jpg"
+            src="/listings2.webp"
             alt="An image of a mid-sized boat on the blue ocean."
             className="imageCover"
             loading="lazy"
