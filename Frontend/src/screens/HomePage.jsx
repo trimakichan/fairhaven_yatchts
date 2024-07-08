@@ -29,7 +29,6 @@ const HomePage = () => {
     isFetching,
     data: listings,
   } = useBoatListings();
-  // console.log(listings);
 
   useEffect(() => {
     if (listings) {
@@ -61,31 +60,33 @@ const HomePage = () => {
     <main className="homePage">
       <header className="homePage__hero">
         <div className="hero-content">
-          <motion.div className="heroHeadingText" {...fadeInAnimSettings}>
-            <span className="spanText">WELCOME TO</span> <br />
-            FAIRHAVEN YACHTS
-          </motion.div>
-          <p className="heroParagraph ">
-            Experience the pleasure of owning a yacht. <br></br>Browse our
-            collection and make your dreams a reality.
-          </p>
-          <div className="hero-buttons">
-            <Link to="buy">
-              <button
-                aria-label="Explore our yacht collection"
-                className="explore-button"
-              >
-                Explore
-              </button>
-            </Link>
-            <Link to="about">
-              <button
-                aria-label="Learn more about Fairhaven Yachts"
-                className="learnMore-button"
-              >
-                Learn More
-              </button>
-            </Link>
+          <div className="wrapper">
+            <motion.div className="heroHeadingText" {...fadeInAnimSettings}>
+              <span className="spanText">WELCOME TO</span> <br />
+              FAIRHAVEN YACHTS
+            </motion.div>
+            <p className="heroParagraph ">
+              Experience the pleasure of owning a yacht. <br></br>Browse our
+              collection and make your dreams a reality.
+            </p>
+            <div className="hero-buttons">
+              <Link to="buy">
+                <button
+                  aria-label="Explore our yacht collection"
+                  className="explore-button"
+                >
+                  Explore
+                </button>
+              </Link>
+              <Link to="about">
+                <button
+                  aria-label="Learn more about Fairhaven Yachts"
+                  className="learnMore-button"
+                >
+                  Learn More
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </header>
@@ -170,8 +171,14 @@ const HomePage = () => {
           </motion.article>
 
           <img
-            src="/home2.webp"
+            src="/homePage/home2-1920.webp"
             alt="A power boat blasting on the water"
+            sizes="(max-width: 600px) 480px, (max-width: 1200px) 800px, (max-width: 1800px) 1200px, 100vw"
+            srcSet="
+                /homePage/home2-480w.webp 480w,
+    /homePage/home2-800w.webp 800w,
+    /homePage/home2-1200w.webp 1200w,
+    /homePage/home2-1920w.webp 1920w"
             className="imageCover"
             loading="lazy"
           />
@@ -181,7 +188,7 @@ const HomePage = () => {
       <section className="homePage__section2">
         <div className="wrapper sectionLayout">
           <img
-            src="/home3.webp"
+            src="/homePage/home3.webp"
             alt="marina"
             className="imageCover image-order"
             loading="lazy"
