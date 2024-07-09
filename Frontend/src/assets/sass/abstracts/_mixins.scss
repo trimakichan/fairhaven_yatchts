@@ -71,27 +71,24 @@
 @mixin heroSectionStyle($imageLink, $position) {
 
     width: 100%;
-    height: 600px;
-    padding: 5rem;
-    // margin-bottom: 2rem;
+    height: 700px;
+    // padding: 5rem;
     background: url($imageLink) no-repeat;
     background-position: $position;
     background-size: cover;
     background-attachment: fixed;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    align-items: end;
 
     @include lg {
-        padding: 2rem;
+        padding-bottom: 0;
+       
     }
 
     @include md {
-        margin-bottom: 1rem;
-        grid-template-columns: 1fr;
-        align-items: end;
+        height: 500px;
+        padding: 1.5rem;
 
     }
+
 }
 
 @mixin bgWords($text, $font-size, $top-position) {

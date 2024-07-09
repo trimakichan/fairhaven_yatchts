@@ -9,7 +9,7 @@ const SellYachts = () => {
   return (
     <main className="sellYachts">
       <article className="sellYachts__hero">
-        <div className=" sellYachts-hero-background">
+        <div className="heroTitleBgStyle">
           <motion.h1 {...fadeInAnimSettings}>Sell Your Yacht</motion.h1>
           <motion.div className="heroParagraph" {...fadeInAnimSettings}>
             Unlock the potential of your yacht. Our experienced team will guide
@@ -41,8 +41,8 @@ const SellYachts = () => {
       <article className="sellYachts__section1">
         <div className="wrapper sectionLayout">
           <img
-            src="/sellYachst2.jpg"
-            alt="marina"
+            src="/sellYachtPage/sellYacht2.webp"
+            alt="Top half of a big boat"
             className="imageCover imageOrder"
             loading="lazy"
           />

@@ -8,11 +8,18 @@
     }
 
     &__hero {
-        @include heroSectionStyle('/about1.webp', 20% 70%);
+        @include heroSectionStyle('/aboutPage/about1.webp', 20% 120%);
+            display: flex;
+                justify-content: center;
+                align-items: end;
 
         @include md {
-            @include heroSectionStyle('/about1.webp', 60% 0%);
+            @include heroSectionStyle('/aboutPage/about1-medium.webp', center);
         }
+
+                   @include sm {
+                       @include heroSectionStyle('/aboutPage/about1-small.webp', center);
+                   }
     }
 
 

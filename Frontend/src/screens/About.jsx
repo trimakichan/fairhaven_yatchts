@@ -10,7 +10,6 @@ import { Contexts } from "../contexts/contexts";
 import { MdSmartphone } from "react-icons/md";
 import { TfiEmail } from "react-icons/tfi";
 
-
 const About = () => {
   const fadeInAnimSettings = useFadeInYAxisAnimSettings();
   const { memberMain } = useContext(Contexts);
@@ -18,7 +17,7 @@ const About = () => {
   return (
     <main className="about">
       <header className="about__hero">
-        <div className="heroBgStyle">
+        <div className="heroTitleBgStyle">
           <motion.div {...fadeInAnimSettings}>
             <h1>Connecting Yacht Enthusiasts</h1>
             <div className="heroParagraph">
@@ -116,7 +115,7 @@ const About = () => {
             className="sectionContentLayout about-content"
             {...fadeInAnimSettings}
           >
-            <h2>Our Firm's History and Achievements</h2>
+            <h2>Our Firm&#39;s History and Achievements</h2>
             <p>
               With over 20 years of experience, our yacht brokerage firm has
               established itself as a leader in the industry. We have
@@ -132,7 +131,7 @@ const About = () => {
           </motion.div>
 
           <img
-            src="/about2.webp"
+            src="/aboutPage/about2.webp"
             alt="A closeup of half of the boat"
             className="imageCover"
             loading="lazy"

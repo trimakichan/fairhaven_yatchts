@@ -12,7 +12,7 @@ const Contact = () => {
   return (
     <main className="contact">
       <article className="contact__hero">
-        <div className="heroBgStyle">
+        <div className="heroTitleBgStyle">
           <motion.h1 {...fadeInAnimSettings}>Contact Us</motion.h1>
           <motion.div className="heroParagraph" {...fadeInAnimSettings}>
             We&apos;re here to assist you. Reach out to us for any inquiries or

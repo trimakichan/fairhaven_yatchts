@@ -3,32 +3,26 @@
 .sellYachts {
 
     &__hero {
-        @include heroSectionStyle('/sellYacht1.webp', 0% 80%);
+        @include heroSectionStyle('/sellYachtPage/sellYacht1.webp', 0% 80%);
         padding-bottom: 0;
         display: flex;
         justify-content: center;
         align-items: end;
 
-        @include md {
+
+        @include lg {
             // padding-bottom: 0;
-            @include heroSectionStyle('/sellYacht1.webp', 30% 0%);
-            align-items: center;
+            @include heroSectionStyle('/sellYachtPage/sellYacht1-medium.webp', 60%);
+            // align-items: center;
+
 
         }
 
-        .sellYachts-hero-background {
-            max-width: 1000px;
-            padding: 5rem;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            background-color: rgba($color-primary, .45);
-            backdrop-filter: blur(5px);
-
-            @include md {
-                padding: 2rem;
-                border-radius: 10px;
-            }
+        @include sm {
+            @include heroSectionStyle('/sellYachtPage/sellYacht1-small.webp', 80%);
+            
         }
+
     }
 
     //create global styles later

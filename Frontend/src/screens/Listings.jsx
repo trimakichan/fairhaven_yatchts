@@ -75,7 +75,7 @@ const Listings = () => {
             </Link>
           </div>
           <img
-            src="/listings2.webp"
+            src="/listingsPage/listings2.webp"
             alt="An image of a mid-sized boat on the blue ocean."
             className="imageCover"
             loading="lazy"

@@ -3,8 +3,17 @@
 .contact {
 
     &__hero {
-        @include heroSectionStyle('/contact1.webp', bottom);
+        @include heroSectionStyle('/contactPage/contact1.webp', 50% 20%);
+            display: flex;
+                justify-content: center;
+                align-items: end;
+@include md {
+        @include heroSectionStyle('/contactPage/contact1-medium.webp', bottom);
+    }
 
+    @include sm {
+        @include heroSectionStyle('/contactPage/contact1-small.webp', bottom);
+    }
     }
 
 
