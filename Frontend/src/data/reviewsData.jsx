@@ -1,11 +1,11 @@
 export const reviewsData = [
   {
     review:
-      "Our experience with this yacht brokerage firm was exceptional. They helped us find the perfect yacht for our needs.",
+      "Our experience with Fairhaven Yachts was exceptional. Shane helped us find the perfect yacht for our needs.",
     name: "James Anderson",
     status: "Yacht Owner",
     stars: 5,
-    image: "/ocean_alexander.webp",
+    // image: "/ocean_alexander.webp",
   },
   {
     review:
@@ -13,14 +13,14 @@ export const reviewsData = [
     name: "Emily Carter",
     status: "Yacht Seller",
     stars: 5,
-    image: "/ocean_alexander1.webp",
+    // image: "/ocean_alexander1.webp",
   },
   {
     review:
-      "This yacht brokerage firm exceeded our expectations. Their team was incredibly knowledgeable and attentive, helping us navigate every step of finding the perfect yacht for our family.",
+      "Fairhaven Yachts exceeded our expectations. Their team was incredibly knowledgeable and attentive, helping us navigate every step of finding the perfect yacht for our family. I am enjoying the boat so much with my family. Thank you!",
     name: "Michael Thompson",
     status: "Yacht Owner",
     stars: 5,
-    image: "/real_ships57.webp",
+    // image: "/real_ships57.webp",
   },
 ];

@@ -1,6 +1,6 @@
 import "./salesRepPopUp.scss";
-import { brokersInfo } from "../../data/brokersInfo";
-import { useEffect, useState } from "react";
+// import { brokersInfo } from "../../data/brokersInfo";
+// import { useEffect, useState } from "react";
 import { isMobile } from "react-device-detect";
 
 import { FiPhone } from "react-icons/fi";

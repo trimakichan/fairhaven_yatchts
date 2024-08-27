@@ -27,7 +27,7 @@ const SellYachts = () => {
             className="sellYachts-intro-description subtitle"
             {...fadeInAnimSettings}
           >
-            At our brokerage firm, we understand the importance of selling your
+            We understand the importance of selling your
             yacht quickly and efficiently. With our expertise and network of
             potential buyers, we can help you navigate the selling process with
             ease. Our team of experienced professionals will handle all the
@@ -52,7 +52,7 @@ const SellYachts = () => {
           >
             <h2>Why Choose Our Yacht Brokerage Firm?</h2>
             <p>
-              Our yacht brokerage firm offers a seamless selling experience,
+              We offer a seamless selling experience,
               providing expert guidance and personalized service to ensure a
               successful transaction. With our extensive network and industry
               knowledge, we connect yacht owners with qualified buyers,

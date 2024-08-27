@@ -101,11 +101,13 @@ const HomePage = () => {
             className="homePage-intro-description subtitle"
             {...fadeInAnimSettings}
           >
-            Welcome to our premier yacht brokerage firm, where we provide
-            exceptional service and expertise in facilitating smooth
-            transactions for yacht owners and buyers. With our extensive network
-            and deep understanding of the industry, we are dedicated to
-            delivering unparalleled results and exceeding your expectations.
+            Welcome to Fairhaven Yachts, your trusted yacht brokerage firm. We
+            are passionate about helping you navigate the process of buying or
+            selling your yacht with ease. Our dedicated team offers personalized
+            service, leveraging our extensive network and deep industry
+            knowledge to deliver exceptional results. We are committed to
+            exceeding your expectations and making your yacht journey enjoyable
+            and seamless.
           </motion.div>
         </section>
       </div>
@@ -138,7 +140,7 @@ const HomePage = () => {
               aria-label="View all the new listings"
               onClick={!isLoadMore ? loadMore : hide}
             >
-              {!isLoadMore ? "View all" : "Hide"}
+              {!isLoadMore ? "Load More" : "Hide"}
             </a>{" "}
           </div>
         </div>
@@ -152,11 +154,11 @@ const HomePage = () => {
           >
             <h2>Find Your Dream Yacht Today</h2>
             <p>
-              At our yacht brokerage firm, we offer expert brokers, a global
-              network, and personalized service to help you buy or sell your
-              yacht. With our extensive knowledge and connections in the
-              industry, we can facilitate smooth transactions and ensure a
-              seamless experience for our clients.
+              At Fairhaven Yachts, we offer expert brokers, a global network,
+              and personalized service to help you buy or sell your yacht. With
+              our extensive industry knowledge and connections, we facilitate
+              smooth transactions and ensure a seamless experience for our
+              clients.
             </p>
             <ul>
               <li className="textMJost">Expert Brokers</li>
@@ -198,9 +200,7 @@ const HomePage = () => {
             className="sectionContentLayout section2-content"
             {...fadeInAnimSettings}
           >
-            <h2>
-              Discover the Benefits of Working with Our Yacht Brokerage Firm
-            </h2>
+            <h2>Discover the Benefits of Working with Fairhaven Yachts</h2>
             <p>
               Our firm offers a seamless experience for both yacht buyers and
               sellers, ensuring smooth transactions and peace of mind.
