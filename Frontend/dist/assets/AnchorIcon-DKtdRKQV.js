@@ -1,1 +1,0 @@
-import{j as s}from"./index-DiLk4MmL.js";const a=()=>s.jsxs("div",{className:"iconContainer",children:[s.jsx("div",{className:"line"}),s.jsx("img",{src:"/anchor.svg",alt:"An Anchor Image",className:"anchor-icon"}),s.jsx("div",{className:"line"})]});export{a as A};
