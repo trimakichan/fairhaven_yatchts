@@ -75,7 +75,7 @@ const fetchBoatListings = async () => {
   // const url = `http://localhost:5000/api`
   // const url = `https://fairhaven-yachts-eeeb7fbec898.herokuapp.com/api`;
   // const url = `https://api.boats.com/inventory/search?key=${apiKey}&status=active,sale%20pending`;
-  const url = `https://fairhavenyachts.com/api`; //CHANGE HERE
+  const url = `https://www.fairhavenyachts.com/api`; //CHANGE HERE
   const results = await fetchApi(url);
   return filterData(results);
 };
@@ -84,7 +84,7 @@ const fetchBoatListingById = async (id) => {
   // const url = `http://localhost:5000/api?&DocumentID=${id}`;
   // const url = `https://fairhaven-yachts-eeeb7fbec898.herokuapp.com/api?&DocumentID=${id}`;
   // const url = `https://api.boats.com/inventory/search?key=${apiKey}&DocumentID=${id}`;
-    const url = `https://fairhavenyachts.com/api?&DocumentID=${id}`; //CHANGE HERE 
+  const url = `https://www.fairhavenyachts.com/api?&DocumentID=${id}`; //CHANGE HERE
   const results = await fetchApi(url);
   const filteredResults = await filterData(results);
 
