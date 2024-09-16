@@ -54,19 +54,9 @@ export const brokersInfo = [
     email: "chrisburgessfys@gmail.com",
     image: "/brokers/chris-burgess.webp",
   },
+
   {
     id: 6,
-    salesRepId: null,
-    firstName: "Thao",
-    lastName: "Tran",
-    description:
-      "Thao Tran is a licensed US Coast Guard captain who has been a Seattle resident for over 40 years. Thao earned an undergraduate degree in political science and international studies at the University of Washington. He is a German Marshall Memorial Fellow who supports efforts to strengthen relationships across the Transatlantic between US and the European Union. Thao enjoys spending time with his family and his many nieces and nephews. He is a lifelong boater and avid fly fisherman. Thao brings expertise in worldwide yacht brokerage specializing in Asia and the European market.",
-    cell: "1-206-371-6465",
-    email: "opulentfish@gmail.com",
-    image: "/brokers/Thao-Tran.webp",
-  },
-  {
-    id: 7,
     salesRepId: null,
     firstName: "Wendy",
     lastName: "Walsh",
