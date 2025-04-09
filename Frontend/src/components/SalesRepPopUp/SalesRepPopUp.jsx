@@ -1,6 +1,4 @@
 import "./salesRepPopUp.scss";
-// import { brokersInfo } from "../../data/brokersInfo";
-// import { useEffect, useState } from "react";
 import { isMobile } from "react-device-detect";
 
 import { FiPhone } from "react-icons/fi";
@@ -17,7 +15,7 @@ const SalesRepPopUp = ({ broker, boatInfo }) => {
         `Hi! I am interested in the ${boatInfo.make} ${boatInfo.model}.`
       );
     } else {
-      alert("This funciton is only available on mobile devices.");
+      alert("This function is only available on mobile devices.");
     }
   };
 
@@ -59,7 +57,7 @@ const SalesRepPopUp = ({ broker, boatInfo }) => {
             <div className="contact-buttons">
               <a href={`tel:${broker.cell}`} aria-label="Call the broker">
                 <FiPhone />
-                <div className="textSLora bold">Call</div>
+                <div className="textSLora bold">{isMobile ? 'Call' : `Call: ${broker.cell}`}</div>
               </a>
               {/* Text button will show if the device is mobile */}
               {isMobile && (
