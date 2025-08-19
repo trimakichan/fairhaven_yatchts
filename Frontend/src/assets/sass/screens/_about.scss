@@ -150,6 +150,7 @@
 
                     .description {
                         width: 90%;
+                        white-space: pre-line;
 
                         @include md {
                             width: 100%;
