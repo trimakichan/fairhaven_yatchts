@@ -7,9 +7,9 @@ import { getDelayedFadeInAnimSettings } from "../../animations/animationHooks";
 
 const StarDisplay = ({ count }) => {
   return (
-    <div className="stars">
-      {new Array(count).fill(null).map((_, index) => (
-        <FaStar key={index} />
+    <div className="stars" aria-label={`${count} out of 5 stars`}>
+      {Array.from({ length: count }).map((_, index) => (
+        <FaStar key={index} aria-hidden="true" />
       ))}
     </div>
   );
@@ -17,7 +17,7 @@ const StarDisplay = ({ count }) => {
 
 const Review = ({ review: { review, index } }) => {
   return (
-    <motion.div
+    <motion.article
       className="review"
       {...getDelayedFadeInAnimSettings(0.5, index)}
     >
@@ -29,31 +29,34 @@ const Review = ({ review: { review, index } }) => {
       </div>
 
       <div className="review__customerInfo">
-        <div className="customer-name">
-          <div className="bold">{review.name}</div> |
-          <div>{review.status}</div>
-        </div>
+        <p className="customer-name">
+          <span className="bold">{review.name}</span>
+          <span aria-hidden="true"> | </span>
+          <span>{review.status}</span>
+        </p>
         {/* /real_ships57.webp */}
         {/* <img src={review.image} alt="A boat image" loading="lazy" /> */}
       </div>
-    </motion.div>
+    </motion.article>
   );
 };
 
 const CustomerReviews = () => {
   return (
-    <div className="reviews">
-      <div className="reviews__title">
+    <section className="reviews" aria-label="Customer reviews">
+      <header className="reviews__title">
         <h2>Satisfied Customers</h2>
         <p>Read what our clients have to say about us!</p>
-      </div>
+      </header>
 
-      <div className="reviews__content">
+      <ul className="reviews__content">
         {reviewsData.map((review, index) => (
-          <Review key={index} review={{ review, index }} />
+          <li key={index}>
+            <Review review={{ review, index }} />
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </section>
   );
 };
 
