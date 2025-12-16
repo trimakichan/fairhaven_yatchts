@@ -135,7 +135,7 @@ const HomePage = () => {
 
           <div className="newListings-buttons">
             <a
-              href={!isLoadMore && "#new-listings"}
+              href={!isLoadMore ? "#new-listings" : undefined}
               aria-label="View all the new listings"
               onClick={!isLoadMore ? loadMore : hide}
             >
