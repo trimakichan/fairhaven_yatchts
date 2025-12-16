@@ -26,9 +26,9 @@ const SalesRepPopUp = ({ broker, boatInfo }) => {
 
   return (
     broker && (
-      <aside className="popUp">
+      <aside className="popUp" aria-label="Sales representative contact">
         <header className="popUp__title bold ">
-          <div className="textLLora">How Can I Help?</div>
+          <h3 className="textLLora">How Can I Help?</h3>
         </header>
         <section className="popUp__content">
           <figure className="broker-top">
@@ -49,26 +49,26 @@ const SalesRepPopUp = ({ broker, boatInfo }) => {
           </figure>
 
           <section className="broker-bottom">
-            <div className="textMLora">
+            <p className="textMLora">
               Hi! I am {broker.firstName}! I'd be happy to provide you with
               additional information and specific details to assist you further.
-            </div>
+            </p>
 
             <div className="contact-buttons">
               <a href={`tel:${broker.cell}`} aria-label="Call the broker">
                 <FiPhone />
-                <div className="textSLora bold">{isMobile ? 'Call' : `Call: ${broker.cell}`}</div>
+                <span className="textSLora bold">{isMobile ? 'Call' : `Call: ${broker.cell}`}</span>
               </a>
               {/* Text button will show if the device is mobile */}
               {isMobile && (
                 <a aria-label="Text the broker" onClick={sendText}>
                   <BsChatText />
-                  <div className="textSLora bold">Text</div>
+                  <span className="textSLora bold">Text</span>
                 </a>
               )}
               <a href={`mailto: ${broker.email}`} aria-label="Email the broker">
                 <TfiEmail />
-                <div className="textSLora bold">Email</div>
+                <span className="textSLora bold">Email</span>
               </a>
             </div>
           </section>
