@@ -1,23 +1,31 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-
-// const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
-// const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+import { useQuery } from "@tanstack/react-query";
 
 const fetchApi = async (url) => {
-  const response = await fetch(url);
- 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch: ${response.statusText}`);
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    
+    if (!data.results) {
+      throw new Error('Invalid API response: missing results');
+    }
+    
+    return data.results;
+  } catch (error) {
+    if (error.name === 'TypeError') {
+      throw new Error('Network error: Failed to connect to API');
+    }
+    throw error;
   }
-
-  const data = await response.json();
-  return data.results;
-
 };
 
-const filterData = async (results) => {
+const filterData = (results) => {
   if (!results || !Array.isArray(results)) {
-    throw new Error("No results found");
+    throw new Error("Invalid or empty results from API");
   }
 
   const filteredData = results.map(
@@ -68,38 +76,30 @@ const filterData = async (results) => {
     })
   );
 
-  // console.log(`Filtered data: ${JSON.stringify(filteredData)}`);
   return filteredData;
 };
 
 const fetchBoatListings = async () => {
-  // const url = `http://localhost:5000/api`
-  // const url = `https://fairhaven-yachts-eeeb7fbec898.herokuapp.com/api`;
-  // const url = `https://api.boats.com/inventory/search?key=${apiKey}&status=active,sale%20pending`;
-  const url = `https://www.fairhavenyachts.com/api`; //Switch to this for production
+  const url = `https://www.fairhavenyachts.com/api`;
   const results = await fetchApi(url);
-  // console.log('Results', results)
   return filterData(results);
 };
 
 const fetchBoatListingById = async (id) => {
-  // const url = `http://localhost:5000/api?&DocumentID=${id}`;
-  // const url = `https://fairhaven-yachts-eeeb7fbec898.herokuapp.com/api?&DocumentID=${id}`;
-  // const url = `https://api.boats.com/inventory/search?key=${apiKey}&DocumentID=${id}`;
-  const url = `https://www.fairhavenyachts.com/api?&DocumentID=${id}`; //Switch to this for production
+  const url = `https://www.fairhavenyachts.com/api?&DocumentID=${id}`;
   const results = await fetchApi(url);
-  const filteredResults = await filterData(results);
+  const filteredResults = filterData(results);
 
   return filteredResults[0];
 };
 
 // useHooks
 export const useBoatListings = () => {
-  const queryClient = useQueryClient();
   return useQuery({
     queryKey: ["boatListings"],
     queryFn: fetchBoatListings,
-    initialData: () => queryClient.getQueryData(["boatListings"]),
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    retry: 2,
   });
 };
 

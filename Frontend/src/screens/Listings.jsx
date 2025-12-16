@@ -59,7 +59,7 @@ const Listings = () => {
         </section>
       </div>
 
-      <article className="listings__section">
+      <section className="listings__section">
         <div className="wrapper sectionLayout">
           <div className="sectionContentLayout listings-section-content-container">
             <motion.h2 {...fadeInAnimSettings}>
@@ -80,7 +80,7 @@ const Listings = () => {
             loading="lazy"
           />
         </div>
-      </article>
+      </section>
     </main>
   );
 };

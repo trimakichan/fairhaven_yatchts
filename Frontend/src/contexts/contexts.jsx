@@ -11,7 +11,7 @@ export const ContextsProvider = ({ children }) => {
   const [isImageSliderOn, setIsImageSliderOn] = useState(false);
   const [isNavAnimFinished, setIsNavAnimFinished] = useState(null);
   const [boatResults, setBoatResults] = useState([]);
-    const [memberMain, setMemberMain] = useState(brokersInfo[0]);
+  const [memberMain, setMemberMain] = useState(brokersInfo[0]);
 
   return (
     <Contexts.Provider
