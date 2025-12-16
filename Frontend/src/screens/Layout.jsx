@@ -18,19 +18,17 @@ const Layout = () => {
   const toggleNav = () => setIsOpenNavMobile();
 
   return (
-    <>
-      <div className="layout" onClick={isOpenNavMobile ? toggleNav : undefined}>
-        <header>
-          {isOpenNavForSlider ? '' : <Navbar />}
-        </header>
-        <div className={isOpenNavMobile || isImageSliderOn ? "lock" : ""}>
-          <div className="content">
-            <Outlet />
-          </div>
-          <Footer />
+    <div className="layout" onClick={isOpenNavMobile ? toggleNav : undefined}>
+      <header>
+        {isOpenNavForSlider ? '' : <Navbar />}
+      </header>
+      <div className={isOpenNavMobile || isImageSliderOn ? "lock" : ""}>
+        <div className="content">
+          <Outlet />
         </div>
+        <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

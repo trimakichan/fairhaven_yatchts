@@ -97,7 +97,7 @@ const ListingDetails = () => {
 
   return (
     <main className="listingDetails">
-      <div className="contact-aside">
+      <aside className="contact-aside">
         <AnimatePresence>
           {IsSaleRepOpen && (
             <motion.div
@@ -167,16 +167,14 @@ const ListingDetails = () => {
             )}
           </motion.div>
         )}
-      </div>
+      </aside>
 
       <div className="wrapper listingDetails-title-bg">
-        <div className=""></div>
-
         <button className="go-back" onClick={handleGoBack}>
           <RxDoubleArrowLeft /> Go back
         </button>
 
-        <motion.div
+        <motion.header
           className="listingDetails__title"
           {...fadeInYAxisAnimSettings}
         >
@@ -188,38 +186,38 @@ const ListingDetails = () => {
             </span>
           </h1>
 
-          <div className="textMJost listingDetails__title__info ">
-            <div>
+          <p className="textMJost listingDetails__title__info ">
+            <span>
               {parseFloat(boatListing.Price).toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",
               })}
-            </div>
-            <div className="info-location">
+            </span>
+            <span className="info-location">
               <GrLocation className="iconStyles" />{" "}
               {boatListing.BoatLocation.BoatCityName},{" "}
               {boatListing.BoatLocation.BoatStateCode}
-            </div>
-          </div>
-        </motion.div>
+            </span>
+          </p>
+        </motion.header>
       </div>
 
       <ImageDetailSection boatListing={boatListing} />
 
       <div className="wrapper">
-        <motion.div
+        <motion.section
           className="listingDetails__description"
           {...fadeInAnimSettings}
         >
-          <div className="description-title">
+          <header className="description-title">
             <h2>Description</h2>
             <div className="line"></div>
-          </div>
+          </header>
 
           <div className="description-content">
             <div className="boat-description">
-              {boatDescription && <p>{parse(boatDescription)}</p>}
-              {additionalDescription && <p>{parse(additionalDescription)}</p>}
+              {boatDescription && <div>{parse(boatDescription)}</div>}
+              {additionalDescription && <div>{parse(additionalDescription)}</div>}
             </div>
             <aside className="boat-salesRep">
               <header className="textLLora salesRep-title">
@@ -248,12 +246,12 @@ const ListingDetails = () => {
                       className="button"
                     >
                       <FiPhone />
-                      <div className="textSLora bold">Call</div>
+                      <span className="textSLora bold">Call</span>
                     </a>
                     {isMobile && (
                       <a aria-label="Text the broker" onClick={sendText}>
                         <BsChatText />
-                        <div className="textSLora bold">Text</div>
+                        <span className="textSLora bold">Text</span>
                       </a>
                     )}
                     <a
@@ -261,14 +259,14 @@ const ListingDetails = () => {
                       aria-label="Email the broker"
                     >
                       <TfiEmail />
-                      <div className="textSLora bold">Email</div>
+                      <span className="textSLora bold">Email</span>
                     </a>
                   </div>
                 </div>
               )}
             </aside>
           </div>
-        </motion.div>
+        </motion.section>
       </div>
     </main>
   );
