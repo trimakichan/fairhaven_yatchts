@@ -6,7 +6,6 @@ import { TfiEmail } from "react-icons/tfi";
 import { BsChatText } from "react-icons/bs";
 
 const SalesRepPopUp = ({ broker, boatInfo }) => {
-  // console.log(broker);
 
   const sendText = () => {
     if (isMobile) {
