@@ -11,18 +11,18 @@ const Contact = () => {
 
   return (
     <main className="contact">
-      <article className="contact__hero">
+      <section className="contact__hero">
         <div className="heroTitleBgStyle">
           <motion.h1 {...fadeInAnimSettings}>Contact Us</motion.h1>
-          <motion.div className="heroParagraph" {...fadeInAnimSettings}>
+          <motion.p className="heroParagraph" {...fadeInAnimSettings}>
             We&apos;re here to assist you. Reach out to us for any inquiries or
             assistance.
-          </motion.div>
+          </motion.p>
         </div>
-      </article>
+      </section>
 
       <div className="wrapper">
-        <article className="contact__info">
+        <section className="contact__info">
           <motion.div className="contact-info-title" {...fadeInAnimSettings}>
             <h2>Contact Information</h2>
             <p>For any inquiries, please feel free to reach out to us.</p>
@@ -32,8 +32,8 @@ const Contact = () => {
             <div className="content-text-container textMJost">
               <div className="contact-email ">
                 <MdOutlineEmail className="iconStyles" />
-                <div className="bold">Email</div>
-                <div>Send us an email</div>
+                <h3>Email</h3>
+                <p>Send us an email</p>
                 <a href="mailto:fairhavenyachtsales@gmail.com">
                   fairhavenyachtsales@gmail.com
                 </a>
@@ -41,38 +41,38 @@ const Contact = () => {
 
               <div className="contact-phone">
                 <FiPhone className="iconStyles" />
-                <div className="bold">Phone</div>
-                <div>Call us for assistance</div>
+                <h3>Phone</h3>
+                <p>Call us for assistance</p>
                 <a href="tel:1-206-940-9088">+1-206-940-9088</a>
               </div>
 
               <div className="contact-location">
                 <GrLocation className="iconStyles" />
-                <div className="bold">Location</div>
+                <h3>Location</h3>
 
                 <div>
-                  <div>La Conner Office</div>
-                  <div>
+                  <h4>La Conner Office</h4>
+                  <address>
                     PO Box 1531 <br />
                     105 N First Street <br />
                     La Conner, WA 98257 USA
-                  </div>
+                  </address>
                   <a
                     href="https://maps.app.goo.gl/dAKMZjWnhZtbp7289"
                     target="_blank"
                   >
-                    <div className="linkText hoverEffectColor">
+                    <span className="linkText hoverEffectColor">
                       Get Direction&nbsp; &gt;
-                    </div>
+                    </span>
                   </a>
                 </div>
 
                 <div>
-                  <div>Kirkland Office</div>
-                  <div>
+                  <h4>Kirkland Office</h4>
+                  <address>
                     5400 Carillon Point <br />
                     Kirkland, WA 98033 USA
-                  </div>
+                  </address>
                 </div>
               </div>
             </div>
@@ -89,10 +89,10 @@ const Contact = () => {
               ></iframe>
             </div>
           </div>
-        </article>
+        </section>
       </div>
 
-      <div className="contact__form">
+      <section className="contact__form">
         <div className="wrapper">
           <motion.div className="form-title" {...fadeInAnimSettings}>
             <h2>Get in Touch</h2>
@@ -103,7 +103,7 @@ const Contact = () => {
             <ContactForm />
           </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 };
