@@ -14,37 +14,41 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <div className="footer-top" onClick={scrollToTop}>
+      <button className="footer-top" onClick={scrollToTop} type="button">
         Top
-      </div>
+      </button>
       <div className="wrapper">
         <div className="footer-content">
-          <div className="footer-logo">
+          <div className="footer-logo" aria-label="Fairhaven Yachts">
             <img src="/logo.webp" alt="Fairhaven Yachts Logo" />
           </div>
 
           <div className="footer-location">
-            <div className="laConner-office textSPlayfair ">
+            <section className="laConner-office textSPlayfair ">
               <div className="bold">La Conner Office</div>
-              <a
-                href="https://maps.app.goo.gl/e25YNJMbJQ2vSAE37"
-                target="_blank"
-              >
-                PO Box 1531 105 N First Street <br />
-                La Conner, WA 98257 USA
-              </a>
-            </div>
+              <address>
+                <a
+                  href="https://maps.app.goo.gl/e25YNJMbJQ2vSAE37"
+                  target="_blank"
+                >
+                  PO Box 1531 105 N First Street <br />
+                  La Conner, WA 98257 USA
+                </a>
+              </address>
+            </section>
 
-            <div className="kirkland-office textSPlayfair">
+            <section className="kirkland-office textSPlayfair">
               <div className="bold">Kirkland Office</div>
-              <a
-                href="https://maps.app.goo.gl/vj46h3ipCPtXrvU47"
-                target="_blank"
-              >
-                5400 Carillon Point <br />
-                Kirkland, WA 98033 USA
-              </a>
-            </div>
+              <address>
+                <a
+                  href="https://maps.app.goo.gl/vj46h3ipCPtXrvU47"
+                  target="_blank"
+                >
+                  5400 Carillon Point <br />
+                  Kirkland, WA 98033 USA
+                </a>
+              </address>
+            </section>
           </div>
 
           <div className="footer-contact">
@@ -83,10 +87,10 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <div className="textSPlayfair">
+          <p className="textSPlayfair">
             ©{new Date().getFullYear()} FAIRHAVEN YACHT SALES. All rights
             reserved.
-          </div>
+          </p>
         </div>
       </div>
     </footer>

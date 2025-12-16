@@ -5,7 +5,7 @@ import { getCutoffDate } from '../../utilities/utilities';
 
 const Card = ({ item }) => {
     const cutoffDate = getCutoffDate();
-     const itemDate = new Date(item.ItemReceivedDate);
+    const itemDate = new Date(item.ItemReceivedDate);
 
     return (
       <div className="card">
