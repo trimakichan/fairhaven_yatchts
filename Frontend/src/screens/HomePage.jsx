@@ -126,7 +126,6 @@ const HomePage = () => {
           </div>
 
           <div className="newListings-container">
-            {/* <Loading /> */}
             {isLoading && <Loading />}
             {newListings &&
               newListingsInitial.map((listing, index) => {

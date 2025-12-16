@@ -8,22 +8,22 @@ const SellYachts = () => {
   const fadeInAnimSettings = useFadeInYAxisAnimSettings();
   return (
     <main className="sellYachts">
-      <article className="sellYachts__hero">
+      <section className="sellYachts__hero">
         <div className="heroTitleBgStyle">
           <motion.h1 {...fadeInAnimSettings}>Sell Your Yacht</motion.h1>
-          <motion.div className="heroParagraph" {...fadeInAnimSettings}>
+          <motion.p className="heroParagraph" {...fadeInAnimSettings}>
             Unlock the potential of your yacht. Our experienced team will guide
             you through the process, ensuring a smooth and profitable sale.
-          </motion.div>
+          </motion.p>
         </div>
-      </article>
+      </section>
 
       <div className="wrapper">
-        <article className="sellYachts__intro">
+        <section className="sellYachts__intro">
           <motion.h1 className="sellYachts-intro-title" {...fadeInAnimSettings}>
             Sell Your Yacht with Ease and Confidence
           </motion.h1>
-          <motion.div
+          <motion.p
             className="sellYachts-intro-description subtitle"
             {...fadeInAnimSettings}
           >
@@ -34,11 +34,11 @@ const SellYachts = () => {
             details, from marketing your yacht to negotiating the best price.
             Trust us to make your yacht selling experience seamless and
             stress-free.
-          </motion.div>
-        </article>
+          </motion.p>
+        </section>
       </div>
 
-      <article className="sellYachts__section1">
+      <section className="sellYachts__section1">
         <div className="wrapper sectionLayout">
           <img
             src="/sellYachtPage/sellYacht2.webp"
@@ -60,9 +60,9 @@ const SellYachts = () => {
             </p>
           </motion.div>
         </div>
-      </article>
+      </section>
 
-      <article className="sellYachts__contact">
+      <section className="sellYachts__contact">
         <div className="wrapper">
           <motion.div className="sellYachts-info-title" {...fadeInAnimSettings}>
             <h2>Contact Us</h2>
@@ -74,7 +74,7 @@ const SellYachts = () => {
             <ContactForm />
           </div>
         </div>
-      </article>
+      </section>
     </main>
   );
 };

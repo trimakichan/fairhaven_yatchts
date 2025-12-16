@@ -16,7 +16,6 @@ const fetchApi = async (url) => {
 };
 
 const filterData = async (results) => {
-  console.log('filtered', results)
   if (!results || !Array.isArray(results)) {
     throw new Error("No results found");
   }

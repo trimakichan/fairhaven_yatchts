@@ -7,7 +7,6 @@ import { Contexts } from "../contexts/contexts";
 import { useFadeInYAxisAnimSettings } from "../animations/animationHooks";
 import AnchorIcon from "../components/AnchorIcon/AnchorIcon";
 import Card from "../components/Card/Card";
-import { BiFontColor } from "react-icons/bi";
 import { useBoatListings } from "../api/fetchListings";
 import Loading from "../components/Loading/Loading";
 import SearchBar from "../components/SearchBar/SearchBar";

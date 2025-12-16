@@ -47,7 +47,6 @@ const About = () => {
             </div>
 
             <div className="member-details" id="member-info">
-              {/* <TeamMember memberInfo={memberMain} /> */}
 
               <figure className="member-image">
                 <img

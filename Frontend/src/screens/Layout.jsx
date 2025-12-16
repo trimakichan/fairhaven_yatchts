@@ -35,26 +35,3 @@ const Layout = () => {
 };
 
 export default Layout;
-
-// const ProtectedRoute = () => {
-//     const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
-//     const location = useLocation();
-
-//     useEffect(() => {
-//         if (location.pathname === '/fy-admin' && !user) {
-//             console.log("Attempting to redirect...");
-//             loginWithRedirect();
-//         }
-
-//     }, [loginWithRedirect, location.pathname, user]);
-
-//     // if (isLoading) {
-//     //     return <div >Loading ...</div>;
-//     // }
-
-//     return isAuthenticated &&
-//         (<div className="layout">
-//             <Outlet />
-//         </div>)
-
-// }
