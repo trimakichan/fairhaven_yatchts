@@ -20,22 +20,22 @@ const About = () => {
         <div className="heroTitleBgStyle">
           <motion.div {...fadeInAnimSettings}>
             <h1>Connecting Yacht Enthusiasts</h1>
-            <div className="heroParagraph">
+            <p className="heroParagraph">
               We are a yacht brokerage firm dedicated to helping yacht owners
               and buyers navigate the seas of transactions.
-            </div>
+            </p>
           </motion.div>
         </div>
       </header>
 
       <div className="wrapper">
-        <article className="about__team">
+        <section className="about__team">
           <motion.div className="team-title" {...fadeInAnimSettings}>
             <p>Experienced</p>
             <h2 className="about-bg-text">Meet Our Team</h2>
-            <div className="subtitle">
+            <p className="subtitle">
               Get to know the experts behind our yacht brokerage firm.
-            </div>
+            </p>
             <AnchorIcon />
           </motion.div>
 
@@ -64,40 +64,34 @@ const About = () => {
 
               <div className="member-content">
                 <div className="contact-info textMJost">
-                  <>
-                    {memberMain.cell && (
-                      <div className="info-align">
-                        <MdSmartphone
-                          className="iconStyles"
-                          aria-label="Phone Icon"
-                        />
-                        <a
-                          href={`tel:${memberMain.cell}`}
-                          aria-label={`Call ${memberMain.firstName} ${memberMain.lastName} at +${memberMain.cell}`}
-                        >
-                          +{memberMain.cell}
-                        </a>
-                      </div>
-                    )}
-                  </>
-                  <div>
-                    {" "}
-                    {memberMain.email && (
-                      <div className="info-align">
-                        <TfiEmail
-                          className="iconStyles"
-                          aria-label="Email Icon"
-                        />{" "}
-                        <a
-                          href={`mailto:${memberMain.email}`}
-                          aria-label={`Email ${memberMain.firstName} ${memberMain.lastName}`}
-                        >
-                          {" "}
-                          {memberMain.email}
-                        </a>
-                      </div>
-                    )}
-                  </div>
+                  {memberMain.cell && (
+                    <div className="info-align">
+                      <MdSmartphone
+                        className="iconStyles"
+                        aria-label="Phone Icon"
+                      />
+                      <a
+                        href={`tel:${memberMain.cell}`}
+                        aria-label={`Call ${memberMain.firstName} ${memberMain.lastName} at +${memberMain.cell}`}
+                      >
+                        +{memberMain.cell}
+                      </a>
+                    </div>
+                  )}
+                  {memberMain.email && (
+                    <div className="info-align">
+                      <TfiEmail
+                        className="iconStyles"
+                        aria-label="Email Icon"
+                      />{" "}
+                      <a
+                        href={`mailto:${memberMain.email}`}
+                        aria-label={`Email ${memberMain.firstName} ${memberMain.lastName}`}
+                      >
+                        {memberMain.email}
+                      </a>
+                    </div>
+                  )}
                 </div>
                 <div className="description textMRoboto">
                   {memberMain.description}
@@ -105,10 +99,10 @@ const About = () => {
               </div>
             </div>
           </div>
-        </article>
+        </section>
       </div>
 
-      <article className="about__section1">
+      <section className="about__section1">
         <div className="wrapper sectionLayout">
           <motion.div
             className="sectionContentLayout about-content"
@@ -136,7 +130,7 @@ const About = () => {
             loading="lazy"
           />
         </div>
-      </article>
+      </section>
     </main>
   );
 };
