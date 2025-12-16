@@ -4,16 +4,10 @@ import {
   RouterProvider,
   useLocation,
 } from "react-router-dom";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect } from "react";
 
 import Layout from "./screens/Layout";
 import Loading from "./components/Loading/Loading";
-// import HomePage from './screens/HomePage';
-// import Listings from './screens/Listings';
-// import SellYachts from './screens/SellYachts';
-// import About from './screens/About'
-// import Contact from './screens/Contact'
-// import ListingDetails from './screens/ListingDetails';
 
 const HomePage = lazy(() => import("./screens/HomePage"));
 const Listings = lazy(() => import("./screens/Listings"));
@@ -21,6 +15,7 @@ const SellYachts = lazy(() => import("./screens/SellYachts"));
 const About = lazy(() => import("./screens/About"));
 const Contact = lazy(() => import("./screens/Contact"));
 const ListingDetails = lazy(() => import("./screens/ListingDetails"));
+
 
 //When the router changes, the screen scrolls up to the top.
 const LayoutWithScrollToTop = ({ children }) => {
@@ -33,7 +28,6 @@ const LayoutWithScrollToTop = ({ children }) => {
   return <Layout>{children}</Layout>;
 };
 
-function App() {
   const router = createBrowserRouter([
     {
       path: "/",
@@ -66,6 +60,8 @@ function App() {
       ],
     },
   ]);
+
+function App() {
 
   return (
     <Suspense fallback={<Loading />}>
