@@ -4,8 +4,6 @@ import validator from "validator";
 
 import { IoInformationCircleSharp } from "react-icons/io5";
 
-
-
 const ContactForm = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -16,14 +14,12 @@ const ContactForm = () => {
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
-    console.log(validator.isEmail(value));
     setIsEmailValid(validator.isEmail(value));
   };
 
   const handlePhoneChange = (e) => {
     const value = e.target.value;
     setPhone(value);
-    console.log(validator.isMobilePhone(value));
     setIsPhoneValid(validator.isMobilePhone(value));
   };
 
@@ -32,6 +28,8 @@ const ContactForm = () => {
   };
 
   const isFormValid = isEmailValid && (phone === "" || isPhoneValid);
+  const emailErrorId = "email-error";
+  const phoneErrorId = "phone-error";
 
   return (
     //Using Web3Forms for sending messages.  https://web3forms.com/#start
@@ -48,7 +46,7 @@ const ContactForm = () => {
 
       <div className="form-field w50">
         <label htmlFor="fName">
-          <div className="textMJost">First Name *</div>
+          <span className="textMJost">First Name *</span>
         </label>
         <input
           type="text"
@@ -60,7 +58,7 @@ const ContactForm = () => {
       </div>
       <div className="form-field w50">
         <label htmlFor="lName">
-          <div className="textMJost">Last Name *</div>
+          <span className="textMJost">Last Name *</span>
         </label>
         <input
           type="text"
@@ -73,7 +71,7 @@ const ContactForm = () => {
 
       <div className="form-field w50">
         <label htmlFor="email">
-          <div className="textMJost">Email *</div>
+          <span className="textMJost">Email *</span>
         </label>
         <input
           className={!isEmailValid && isTouched.email ? "invalid" : ""}
@@ -84,19 +82,21 @@ const ContactForm = () => {
           value={email}
           onChange={handleEmailChange}
           onBlur={() => handleBlur("email")}
+          aria-invalid={!isEmailValid && isTouched.email}
+          aria-describedby={!isEmailValid && isTouched.email ? emailErrorId : undefined}
           required
         />
         {!isEmailValid && isTouched.email && (
-          <div className="textSRoboto info-error">
+          <p className="textSRoboto info-error" role="alert" id={emailErrorId}>
             <IoInformationCircleSharp />
             Please provide a valid email address
-          </div>
+          </p>
         )}
       </div>
 
       <div className="form-field w50">
         <label htmlFor="phone">
-          <div className="textMJost">Phone Number</div>
+          <span className="textMJost">Phone Number</span>
         </label>
         <input
           className={!isPhoneValid && isTouched.phone ? "invalid" : ""}
@@ -107,21 +107,22 @@ const ContactForm = () => {
           value={phone}
           onChange={handlePhoneChange}
           onBlur={() => handleBlur("phone")}
+          aria-invalid={!isPhoneValid && isTouched.phone}
+          aria-describedby={!isPhoneValid && isTouched.phone ? phoneErrorId : undefined}
         />
         {!isPhoneValid && isTouched.phone && (
-          <div className="textSRoboto info-error">
+          <p className="textSRoboto info-error" role="alert" id={phoneErrorId}>
             <IoInformationCircleSharp />
             Please provide a valid phone number
-          </div>
+          </p>
         )}
       </div>
 
       <div className="form-field w100">
         <label htmlFor="message">
-          <div className="textMJost">Message *</div>
+          <span className="textMJost">Message *</span>
         </label>
         <textarea
-          type="text"
           name="message"
           id="message"
           placeholder="Enter your message"
