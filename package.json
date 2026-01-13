@@ -10,6 +10,7 @@
     "frontend": "cd Frontend && npm run dev",
     "backend": "nodemon index.js",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "build": "cd Frontend && npm run build",
     "start": "node index.js"
   },
   "keywords": [],
