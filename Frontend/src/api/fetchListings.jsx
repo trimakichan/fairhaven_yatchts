@@ -75,7 +75,6 @@ const fetchBoatListings = async () => {
   // const url = `https://api.boats.com/inventory/search?key=${apiKey}&status=active,sale%20pending`;
   const url = `https://www.fairhavenyachts.com/api`; //Switch to this for production
   const results = await fetchApi(url);
-  // console.log('Results', results)
   return filterData(results);
 };
 

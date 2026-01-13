@@ -40,7 +40,6 @@ const ImageDetailSection = ({ boatListing }) => {
   const sliderMobileRef = useRef(null);
 
   useEffect(() => {
-    // console.log(boatListing);
     if (boatListing?.Images.length > 0) {
       setMainImage(boatListing.Images[0].Uri);
     }

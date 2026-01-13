@@ -41,10 +41,6 @@ const Navbar = () => {
           key={index}
           href={link.href}
           {...getSlidingAnimSettings(0.2, index)}
-          // onAnimationComplete={() => {
-          //   setIsNavAnimFinished(true);
-          //   console.log("Completed animating");
-          // }}
         >
           {link.text}
         </motion.a>

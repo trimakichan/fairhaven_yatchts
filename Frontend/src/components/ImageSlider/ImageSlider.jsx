@@ -17,7 +17,6 @@ const ImageSlider = ({ data: { images, index } }) => {
   const { setIsImageSliderOn, isOpenNavForSlider, setIsOpenNavForSlider } =
     useContext(Contexts);
   const sliderRef = useRef(null);
-  // console.log(images);
   const slides = images?.map((item) => item.Uri);
 
   const [currentIndex, setCurrentIndex] = useState(index);

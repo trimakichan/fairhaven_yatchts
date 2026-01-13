@@ -4,8 +4,6 @@ import validator from "validator";
 
 import { IoInformationCircleSharp } from "react-icons/io5";
 
-
-
 const ContactForm = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -16,14 +14,12 @@ const ContactForm = () => {
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
-    console.log(validator.isEmail(value));
     setIsEmailValid(validator.isEmail(value));
   };
 
   const handlePhoneChange = (e) => {
     const value = e.target.value;
     setPhone(value);
-    console.log(validator.isMobilePhone(value));
     setIsPhoneValid(validator.isMobilePhone(value));
   };
 
