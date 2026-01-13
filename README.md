@@ -82,8 +82,9 @@ Follow the steps below to run the project locally.
 
 ### 3. Install frontend dependencies
 - Install frontend packages:
-  cd Frontend
-  npm install
+
+  cd Frontend  
+  npm install 
 
 ### 4. Install backend dependencies
 - Navigate to the top folder and install packages:
@@ -94,8 +95,8 @@ Follow the steps below to run the project locally.
 ### 5. API configuration (backend)
 This project uses the YachtWorld API through an Express proxy server.
 
-The API base URL is configured in the backend:
-	API_BASE_URL="[https://api.boats.com/inventory/search](https://api.boats.com/inventory/search
+The API base URL is configured in the backend:  
+	API_BASE_URL="https://api.boats.com/inventory/search"
 
 Note: A valid API key is required to successfully fetch data.  
 API credentials are not included in this repository for security reasons.
