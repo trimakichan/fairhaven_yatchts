@@ -11,6 +11,7 @@
     "backend": "nodemon index.js",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
     "build": "cd Frontend && npm run build",
+    "heroku-postbuild": "npm ci --prefix Frontend --include=dev && npm run build --prefix Frontend",
     "start": "node index.js"
   },
   "keywords": [],

@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 //Rate Limiting
 const limiter = rateLimit({
-    windowsMs: 10 * 60 * 1000, //10mins
+    windowMs: 10 * 60 * 1000, 
     max: 300,
     message: 'Too many requests, please try again later.',
     statusCode: 429,
