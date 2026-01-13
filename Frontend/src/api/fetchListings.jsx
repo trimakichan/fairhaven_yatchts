@@ -98,7 +98,9 @@ export const useBoatListings = () => {
   return useQuery({
     queryKey: ["boatListings"],
     queryFn: fetchBoatListings,
-    staleTime: 30 * 60 * 1000, // 30 minutes
+    staleTime: 10 * 60 * 1000, 
+    gcTime: 20 * 60 * 1000,        
+    refetchInterval: 20 * 60 * 1000,
     retry: 2,
   });
 };
@@ -108,5 +110,8 @@ export const useBoatListingsById = (id) => {
     queryKey: ["boatListingsById", id],
     queryFn: () => fetchBoatListingById(id),
     enabled: !!id,
+    staleTime: 15 * 60 * 1000,       
+    gcTime: 30 * 60 * 1000,          
+    refetchInterval: 20 * 60 * 1000,
   });
 };
