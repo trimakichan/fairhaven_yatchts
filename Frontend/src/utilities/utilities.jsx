@@ -25,5 +25,3 @@ export const handleTouchEnd = (moveSlide) => {
     moveSlide("left");
   }
 };
-
-
