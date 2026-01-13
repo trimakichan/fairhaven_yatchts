@@ -5,7 +5,6 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 const fetchApi = async (url) => {
   const response = await fetch(url);
- 
   if (!response.ok) {
     throw new Error(`Failed to fetch: ${response.statusText}`);
   }
@@ -16,7 +15,6 @@ const fetchApi = async (url) => {
 };
 
 const filterData = async (results) => {
-  console.log('filtered', results)
   if (!results || !Array.isArray(results)) {
     throw new Error("No results found");
   }
@@ -68,8 +66,6 @@ const filterData = async (results) => {
       Images,
     })
   );
-
-  // console.log(`Filtered data: ${JSON.stringify(filteredData)}`);
   return filteredData;
 };
 

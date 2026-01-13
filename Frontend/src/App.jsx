@@ -8,12 +8,6 @@ import { lazy, Suspense, useEffect, useState } from "react";
 
 import Layout from "./screens/Layout";
 import Loading from "./components/Loading/Loading";
-// import HomePage from './screens/HomePage';
-// import Listings from './screens/Listings';
-// import SellYachts from './screens/SellYachts';
-// import About from './screens/About'
-// import Contact from './screens/Contact'
-// import ListingDetails from './screens/ListingDetails';
 
 const HomePage = lazy(() => import("./screens/HomePage"));
 const Listings = lazy(() => import("./screens/Listings"));
