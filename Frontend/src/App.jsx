@@ -16,7 +16,6 @@ const About = lazy(() => import("./screens/About"));
 const Contact = lazy(() => import("./screens/Contact"));
 const ListingDetails = lazy(() => import("./screens/ListingDetails"));
 
-
 //When the router changes, the screen scrolls up to the top.
 const LayoutWithScrollToTop = ({ children }) => {
   const { pathname } = useLocation();
