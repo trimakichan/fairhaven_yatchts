@@ -95,7 +95,12 @@ export const useBoatListings = () => {
   return useQuery({
     queryKey: ["boatListings"],
     queryFn: fetchBoatListings,
-    initialData: () => queryClient.getQueryData(["boatListings"]),
+    staleTime: 10 * 60 * 1000,    
+    gcTime: 20 * 60 * 1000,   
+    refetchInterval: 15 * 60 * 1000, // Refetch every 15 minutes in background
+    refetchOnWindowFocus: true,     // Refetch when user returns to tab
+    refetchOnMount: true,  
+    // initialData: () => queryClient.getQueryData(["boatListings"]),
   });
 };
 
@@ -104,5 +109,10 @@ export const useBoatListingsById = (id) => {
     queryKey: ["boatListingsById", id],
     queryFn: () => fetchBoatListingById(id),
     enabled: !!id,
+    staleTime: 10 * 60 * 1000,    
+    gcTime: 30 * 60 * 1000,      
+    refetchInterval: 20 * 60 * 1000, 
+    refetchOnWindowFocus: true,
+    refetchOnMount: true,
   });
 };
